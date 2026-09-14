@@ -1,0 +1,7 @@
+{
+  "subject": "sub-032306",
+  "age_bin": "65-70",
+  "sex_code": 1,
+  "status": "excluded",
+  "reason": "missing required channels O1,T7,T8"
+}
