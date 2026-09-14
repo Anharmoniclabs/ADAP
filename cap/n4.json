@@ -1,0 +1,98 @@
+{
+  "subject": "n4",
+  "status": "included",
+  "counts": {
+    "W": 10,
+    "S1": 10,
+    "S2": 10
+  },
+  "selected_channels": [
+    "F4-A1",
+    "O2-A1",
+    "EOG dx",
+    "EOG sin",
+    "ekg"
+  ],
+  "algebraic_reconstruction": true,
+  "contributing_channels": [
+    "F4-C4",
+    "C4-P4",
+    "P4-O2",
+    "C4-A1",
+    "EOG dx",
+    "EOG sin",
+    "ekg"
+  ],
+  "all_channels": [
+    "EOG dx",
+    "Fp2-F4",
+    "F4-C4",
+    "C4-P4",
+    "P4-O2",
+    "C4-A1",
+    "milo",
+    "EOG sin",
+    "tib dx",
+    "tib sin",
+    "cannula",
+    "toracico",
+    "ekg",
+    "deltoide",
+    "Heart Rate Varia",
+    "Flattening",
+    "Flow"
+  ],
+  "units": [
+    "uV",
+    "uV",
+    "uV",
+    "uV",
+    "mV",
+    "mV",
+    "mV"
+  ],
+  "start_seconds": 79687.0,
+  "record_duration": 10.0,
+  "fs": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    200.0
+  ],
+  "source_url": "https://physionet.org/files/capslpdb/1.0.0/n4.edf",
+  "ranges": [
+    {
+      "bytes": "6128008-7172587",
+      "sha256": "a11824d68c68e43bf7ad19de0d6b0470e564f8502a5eb893af3b26e34eb6995b"
+    },
+    {
+      "bytes": "7100548-7280647",
+      "sha256": "aa3392fd1459fa839330eb732986a0c6ac8a2e10ce0691ac2dbf0cac10de894b"
+    },
+    {
+      "bytes": "22445068-23489647",
+      "sha256": "2159d09c7a952bf0163ca1230d98dae9e5ee80b59878b2c584636096b489c3a8"
+    },
+    {
+      "bytes": "23417608-23813827",
+      "sha256": "b989b50fa211fd7d6eab22c1f40b22dd5a217bf59b5a0a91600898dd397cfe14"
+    },
+    {
+      "bytes": "23849848-24138007",
+      "sha256": "65c5820c5c00e208d58a0dd1298aaa5330fac36baa96512b2765e482dfa561b2"
+    },
+    {
+      "bytes": "92035708-92323867",
+      "sha256": "14ce037b095833745c8ce63cd5e913056fe9e258ca16d729b263a168079b24fd"
+    },
+    {
+      "bytes": "96250048-96754327",
+      "sha256": "aaab56a0cbc85a7d68ca34d4711510e66127a7d2fe98281f3e1945773e390592"
+    }
+  ],
+  "header_sha256": "7366130282fb3acdff52d970318fb87d5ef876e0167f5d217af33a5e427c2897",
+  "annotation_sha256": "5dd6efc5bb15b3f0df741115d308680727e0979bbda5a0c9208cb3db28cdedc6"
+}

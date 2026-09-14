@@ -1,0 +1,100 @@
+{
+  "subject": "n5",
+  "status": "included",
+  "counts": {
+    "W": 10,
+    "S1": 10,
+    "S2": 10
+  },
+  "selected_channels": [
+    "F4-A1",
+    "O2-A1",
+    "ROC-LOC",
+    "ECG1-ECG2"
+  ],
+  "algebraic_reconstruction": true,
+  "contributing_channels": [
+    "F4-C4",
+    "C4-P4",
+    "P4-O2",
+    "C4-A1",
+    "ROC-LOC",
+    "ECG1-ECG2"
+  ],
+  "all_channels": [
+    "Fp2-F4",
+    "F4-C4",
+    "C4-P4",
+    "P4-O2",
+    "F8-T4",
+    "T4-T6",
+    "FP1-F3",
+    "F3-C3",
+    "C3-P3",
+    "P3-O1",
+    "F7-T3",
+    "T3-T5",
+    "C4-A1",
+    "ROC-LOC",
+    "EMG1-EMG2",
+    "ECG1-ECG2",
+    "DX1-DX2",
+    "SX1-SX2",
+    "SAO2",
+    "HR",
+    "PLETH",
+    "STAT",
+    "MIC"
+  ],
+  "units": [
+    "uV",
+    "uV",
+    "uV",
+    "uV",
+    "uV",
+    "uV"
+  ],
+  "start_seconds": 80988.0,
+  "record_duration": 1.0,
+  "fs": [
+    512.0,
+    512.0,
+    512.0,
+    512.0,
+    128.0,
+    512.0
+  ],
+  "source_url": "https://physionet.org/files/capslpdb/1.0.0/n5.edf",
+  "ranges": [
+    {
+      "bytes": "19964698-24991789",
+      "sha256": "bf8f5c19183c08df7eb024098aa18c2bc4af4cff551fe037b5b548ee2dacda16"
+    },
+    {
+      "bytes": "24958498-29985589",
+      "sha256": "8b803a3834ed354f81397ff6050fd11b46f8dfe000a199d1649e92ca2748b57a"
+    },
+    {
+      "bytes": "29952298-30484969",
+      "sha256": "4f03ac34c1cbf7e96b68e6df2d6a252796e56ec1b96350497615db03f9b0e728"
+    },
+    {
+      "bytes": "33447958-34480009",
+      "sha256": "e53debb50f2e6f0985b313ffc8b63d8ca6ef93bd5e0920cba81e217f2b5e8b48"
+    },
+    {
+      "bytes": "96369838-96902509",
+      "sha256": "7296eaa74ab046f5ad9f325b99c8efa4173a32df37dce082b9dd852329b20ff0"
+    },
+    {
+      "bytes": "511853998-513385429",
+      "sha256": "6f115229d9da2e1c8f3500c4c413d677ac64c85b2cce3a71609217fc3cd28f3f"
+    },
+    {
+      "bytes": "521841598-523373029",
+      "sha256": "3e888ab255678ec6c2179a9cb98d61e24a282b913eb683c5f7e8ebfb8a850850"
+    }
+  ],
+  "header_sha256": "a7026829c867a7c7d1c032606c8a548ce79da2d5d822c68c12d720da5882e609",
+  "annotation_sha256": "405513f56918cadeb2ea6bf253cf6ee3dabe07c3dae2fc58afa0931cc0ec4f33"
+}

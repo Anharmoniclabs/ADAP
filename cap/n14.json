@@ -1,0 +1,95 @@
+{
+  "subject": "n14",
+  "status": "included",
+  "counts": {
+    "W": 10,
+    "S1": 10,
+    "S2": 10
+  },
+  "selected_channels": [
+    "F3A2",
+    "O1A2",
+    "LOC",
+    "ROC",
+    "ECG"
+  ],
+  "algebraic_reconstruction": false,
+  "contributing_channels": [
+    "F3A2",
+    "O1A2",
+    "LOC",
+    "ROC",
+    "ECG"
+  ],
+  "all_channels": [
+    "LOC",
+    "ROC",
+    "CHIN1",
+    "CHIN2",
+    "F3A2",
+    "F4A1",
+    "C3A2",
+    "C4A1",
+    "O1A2",
+    "O2A1",
+    "ECG"
+  ],
+  "units": [
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "start_seconds": 79772.0,
+  "record_count": 29551,
+  "record_duration": 1.0,
+  "fs": [
+    200.0,
+    200.0,
+    200.0,
+    200.0,
+    200.0
+  ],
+  "source_url": "https://physionet.org/files/capslpdb/1.0.0/n14.edf",
+  "ranges": [
+    {
+      "bytes": "1582672-2911471",
+      "sha256": "33ec74135e1f9eabf19b4ed4499921de11907412cd46bcdddb332eff8c2dacf8"
+    },
+    {
+      "bytes": "2902672-4099471",
+      "sha256": "032504f25e739ab57ebd26e0560f4c6678e879376006b5076826e3aad1c71cda"
+    },
+    {
+      "bytes": "36298672-36439471",
+      "sha256": "45eb31d9b5278a36407726eb839ab1115d40ca27ba26d5803a98420203296e1a"
+    },
+    {
+      "bytes": "57154672-57295471",
+      "sha256": "06131276f88f117722eb33e504f0569091491f0c7a40275ef5c912e5c361d7ba"
+    },
+    {
+      "bytes": "58210672-58747471",
+      "sha256": "9142375441d975a7ad450b5eed2c2caaddcf9e172c109b440e58b845200b4411"
+    },
+    {
+      "bytes": "70882672-71023471",
+      "sha256": "e6d5bfddc9dd3aebae0e74de8cd743933529f33541eb0f77cb26d77607c21bb3"
+    },
+    {
+      "bytes": "72862672-73003471",
+      "sha256": "1adadd772665ab6ad65098232a178ea47468c307b9c09d4cce33168dec2cfe11"
+    },
+    {
+      "bytes": "109690672-109963471",
+      "sha256": "113e307ae93d7485615662bbf613769e9984f7103ef0a03175d7aafec51301da"
+    },
+    {
+      "bytes": "127114672-127255471",
+      "sha256": "8a0159d50bb112aaf58ca8c6da63a4fb8dd768a5a2a6c181ea4d609bdbafb216"
+    }
+  ],
+  "header_sha256": "07bbaf2d531f31724dfca04afc2449c173dc1919396cdcbf1a76208259d71d64",
+  "annotation_sha256": "9e6f41b61a42c920193a89a45f8d748913b111c6c666287fee70887491b3341f"
+}

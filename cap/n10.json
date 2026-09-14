@@ -1,0 +1,79 @@
+{
+  "subject": "n10",
+  "status": "included",
+  "counts": {
+    "W": 10,
+    "S1": 2,
+    "S2": 10
+  },
+  "selected_channels": [
+    "F4-A1",
+    "O2-A1",
+    "ROC-LOC",
+    "ECG1-ECG2"
+  ],
+  "algebraic_reconstruction": true,
+  "contributing_channels": [
+    "F4-C4",
+    "C4-P4",
+    "P4-O2",
+    "C4-A1",
+    "ROC-LOC",
+    "ECG1-ECG2"
+  ],
+  "all_channels": [
+    "Fp2-F4",
+    "F4-C4",
+    "C4-P4",
+    "P4-O2",
+    "F8-T4",
+    "T4-T6",
+    "FP1-F3",
+    "F3-C3",
+    "C3-P3",
+    "P3-O1",
+    "F7-T3",
+    "T3-T5",
+    "C4-A1",
+    "ROC-LOC",
+    "EMG1-EMG2",
+    "ECG1-ECG2",
+    "DX1-DX2",
+    "SX1-SX2"
+  ],
+  "units": [
+    "uV",
+    "uV",
+    "uV",
+    "uV",
+    "uV",
+    "mV"
+  ],
+  "start_seconds": 80692.0,
+  "record_duration": 1.0,
+  "fs": [
+    512.0,
+    512.0,
+    512.0,
+    512.0,
+    128.0,
+    512.0
+  ],
+  "source_url": "https://physionet.org/files/capslpdb/1.0.0/n10.edf",
+  "ranges": [
+    {
+      "bytes": "58049536-62920191",
+      "sha256": "a06f512c387be24419b14103747dc8d19b8bce69e8b13061a0c2fd6717251221"
+    },
+    {
+      "bytes": "88531456-93402111",
+      "sha256": "ad310175feef508619091f51e3fc7aa4b58a22f7c3184066ae90dbc26d4b7613"
+    },
+    {
+      "bytes": "155301376-156301311",
+      "sha256": "0a762aa0c3f2bc2ba67ce0ecf96dc0813e34ce24d6ae6a1889938592a7403073"
+    }
+  ],
+  "header_sha256": "5ebfe4f2c2730f193f54e63c7789414f713b143ca3c7ae2f6a5f3e0a6fc8640a",
+  "annotation_sha256": "123718da69a6e4f90cb84e712855bef74c276bb07ed8556839aa15877d66fb5b"
+}

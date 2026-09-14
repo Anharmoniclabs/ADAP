@@ -1,0 +1,106 @@
+{
+  "subject": "n1",
+  "status": "included",
+  "counts": {
+    "W": 10,
+    "S1": 10,
+    "S2": 10
+  },
+  "selected_channels": [
+    "F4-A1",
+    "O2-A1",
+    "ROC-LOC",
+    "LOC-ROC",
+    "ECG1-ECG2"
+  ],
+  "algebraic_reconstruction": true,
+  "contributing_channels": [
+    "F4-C4",
+    "C4-P4",
+    "P4-O2",
+    "C4-A1",
+    "ROC-LOC",
+    "LOC-ROC",
+    "ECG1-ECG2"
+  ],
+  "all_channels": [
+    "ROC-LOC",
+    "LOC-ROC",
+    "F2-F4",
+    "F4-C4",
+    "C4-P4",
+    "P4-O2",
+    "F1-F3",
+    "F3-C3",
+    "C3-P3",
+    "P3-O1",
+    "C4-A1",
+    "EMG1-EMG2",
+    "ECG1-ECG2",
+    "TERMISTORE",
+    "TORACE",
+    "ADDOME",
+    "Dx1-DX2",
+    "SX1-SX2",
+    "Posizione",
+    "HR",
+    "SpO2"
+  ],
+  "units": [
+    "uV",
+    "uV",
+    "uV",
+    "uV",
+    "uV",
+    "uV",
+    "uV"
+  ],
+  "start_seconds": 79563.0,
+  "record_duration": 1.0,
+  "fs": [
+    512.0,
+    512.0,
+    512.0,
+    512.0,
+    512.0,
+    512.0,
+    512.0
+  ],
+  "source_url": "https://physionet.org/files/capslpdb/1.0.0/n1.edf",
+  "ranges": [
+    {
+      "bytes": "3002692-7333371",
+      "sha256": "1d8927dcc62609588e780e7b7dddc9fafbcae8d22f62c38f7cbcb9fbb745195c"
+    },
+    {
+      "bytes": "7734892-10774971",
+      "sha256": "344809eb2abd5b4232e078bbbe2317a26b383e65e5f209ad366f9a51127c3084"
+    },
+    {
+      "bytes": "17629492-18518571",
+      "sha256": "bf1fb7a6f43584b377da82b39683411e6f73932d6e52f17c02ab3b98fca8ebbb"
+    },
+    {
+      "bytes": "61079692-63259371",
+      "sha256": "df8192754d521331cd494f74c8b5c663c6a4b179113876c97cb568b231409e7f"
+    },
+    {
+      "bytes": "67962892-68421771",
+      "sha256": "8bfbf8e89e1b061bffc3e4b4abfaec0b36f5388e0b1ac7482ac36872ebdcb256"
+    },
+    {
+      "bytes": "110122492-110581371",
+      "sha256": "069ce027d2da4b85b7a2f456b0e029c55747f7333b773384f8895766d3d1e895"
+    },
+    {
+      "bytes": "166048492-167367771",
+      "sha256": "5ff2bcdfd689eba7402d1b089376f7446e6ecb3206bfc91163d314590ae7a113"
+    },
+    {
+      "bytes": "215951692-216410571",
+      "sha256": "73c9539a9f257e1b038ddb878fd91363dfacb42408bb1e46bb7ef8df7c0ef3c8"
+    }
+  ],
+  "header_sha256": "918a2d4a6642d5265cc7295e89113de765ca64b5fbaa0cbccb8d6464524e7550",
+  "annotation_sha256": "913ffd33166376f7eb46c946377e5b4017ad38809b28757763cb5bfd71004143"
+}
