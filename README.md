@@ -1,38 +1,70 @@
-# Minier EEG: spectral and healthy-state controls
+# ADAP — ad-alpha-parameterization
 
-Run in Python 3.12 after installing `requirements-lock.txt`:
+Reproducible research repository for the Minier EEG alpha-pattern experiments and the September 14, 2026 control run.
 
+## Current result
+
+The source-cohort posterior alpha finding remained lower in AD across the first, middle, and last one-minute source periods after correction. The posterior/frontal difference also persisted across those three periods when an individualized frequency band was centered on each participant's eligible posterior spectral peak. Candidate peak-frequency differences themselves did not survive correction.
+
+The frozen score is state-sensitive in healthy controls. In LEMON, eyes opening increased the score in **30/34** paired older healthy participants (Holm-corrected p ≈ **0.0008**). In CAP, stage-2 theta/alpha increased in **11/11** eligible paired participants (Holm-corrected p ≈ **0.004**). These are physiological sensitivity controls, not evidence that sleep or eye state caused the AD/control result.
+
+The analyses do **not** establish Alzheimer specificity, cholinergic damage, synaptic loss, amyloid/tau mechanism, or impaired AD alpha reactivity. The AD recordings used here contain eyes-closed data only.
+
+Start with [`FINDINGS.md`](FINDINGS.md), [`MATH.md`](MATH.md), [`LIMITATIONS_PARAGRAPH.md`](LIMITATIONS_PARAGRAPH.md), and [`LITERATURE_CONTEXT.md`](LITERATURE_CONTEXT.md).
+
+## What is versioned here
+
+This repository contains the audit layer of the completed control package: analysis and acquisition code, frozen plans and protocol amendments, dependency lock, execution receipt, exact subject-level/statistical result tables, inclusion/exclusion manifests, figures, the illustrated report, result binaries, and the package `SHA256SUMS` manifest.
+
+The CAP extracts that were uploaded separately have been restored to their original package locations under `data/cap/` and `data/cap_first30_pilot/`. Other large waveform/source inputs may still need to be reacquired or reconstructed from the cited public datasets. Their source identities, selection rules, extraction/acquisition code, and expected hashes are recorded here.
+
+The package's original README is preserved byte-for-byte as [`PACKAGE_README.md`](PACKAGE_README.md); the repository README you are reading distinguishes what is actually present in Git from what exists in the larger completed package.
+
+See [`DATA_AVAILABILITY.md`](DATA_AVAILABILITY.md) and [`REPRODUCE.md`](REPRODUCE.md).
+
+## Verify the repository snapshot
+
+From a clean clone:
+
+```bash
+python verify_repository.py
 ```
+
+This validates every manifest-listed file that is available in the repository. The verifier maps the package manifest's `README.md` entry to `PACKAGE_README.md`, because the root README is repository-level documentation. Missing external/reconstructed `data/` assets are reported separately; any missing non-data audit artifact or hash mismatch is an error.
+
+## Full signal-level reproduction
+
+Use Python 3.12 and the pinned environment:
+
+```bash
+python -m pip install -r requirements-lock.txt
+```
+
+Acquire/reconstruct the remaining documented EEG inputs as described in [`REPRODUCE.md`](REPRODUCE.md), then run:
+
+```bash
 python validate_spectral_fit.py
 python spectral_controls.py
 python individual_peak_controls.py
 python state_controls.py
 python make_figures.py
+python build_report.py
+python verify_run.py
 ```
 
-The included waveform extracts allow offline analysis after dependency installation. Download scripts are acquisition/provenance tools and are not required to reproduce the statistical results from the included inputs. `spectral_controls.py --extract /path/to/full/OpenNeuro/derivatives` rebuilds the source60 snippets if they are absent. Original full-length source recordings are in the earlier full data package.
+`spectral_controls.py --extract /path/to/full/OpenNeuro/derivatives` rebuilds the first/middle/last 60-second source snippets from the full OpenNeuro derivatives.
 
-Read FINDINGS.md for the outcome and limitations, PLAN.json and the separately recorded metadata/ECG amendments for choices, MATH.md for formulas, and results/ for all subject-level observations and tests. This is research analysis, not a calibrated clinical diagnostic device.
+## Data sources
 
-## Inputs and exclusions
+- OpenNeuro ds004504 v1.0.9: https://openneuro.org/datasets/ds004504/versions/1.0.9
+- Florida OSF dataset: https://osf.io/2v5md/
+- MPI-LEMON: https://fcon_1000.projects.nitrc.org/indi/retro/MPI_LEMON.html
+- CAP Sleep Database: https://physionet.org/content/capslpdb/1.0.0/
+- Spectral model reference: Donoghue et al. 2020, DOI 10.1038/s41593-020-00744-x
+- Relevant EEG/MRI precedent: Schumacher et al. 2020, DOI 10.1186/s13195-020-00613-6
 
-- OpenNeuro ds004504 v1.0.9: all88 source derivative recordings, first8seconds plus first/middle/last60second snippets. AD36 vs control29 is primary; AD36 vsFTD23 is the disease-specificity comparison. Full source hashes and extraction indices are included.
-- Florida OSF2v5md original EEG_data.zip revision1: AD80/control12, all eight-second eyes-closed recordings, all19 named channels. No longer Florida recordings are created or assumed.
-- LEMON: all74 older entries in the published participant table are considered. Include only available paired preprocessed EC/EO files with all19 required channels and enough boundary-free windows. The alias mapping is T3/T7,T4/T8,T5/P7,T6/P8. Missing electrodes are never interpolated. Actual inclusion/exclusion receipts are included. Analyzed data are the first60seconds of each concatenated condition, not a continuous alternation experiment recreated from raw markers.
-- CAP: all16 healthy IDs are considered. Up to10 first complete30second epochs per W/S1/S2 state anywhere in the recording, following the documented metadata-driven amendment; the original first30minute pilot often preceded the scored data. Each state requires3epochs for paired inference. Use a recorded same-reference frontal/occipital pair, or the explicitly documented exact bipolar-chain identities. Missing signals are never inferred from scalp coordinates. Sleep states are externally scored, not inferred using our alpha score.
+Original data licenses and attribution requirements apply. No blanket relicensing of third-party EEG recordings is asserted here.
 
-No new Alzheimer's test cohort is introduced by LEMON or CAP; these are healthy-state sensitivity controls. Recording setups differ, so absolute levels across datasets are not treated as directly comparable.
+## Scope
 
-## Data sources and methods
-
-- Source documentation: https://github.com/OpenNeuroDatasets/ds004504
-- Source release: https://openneuro.org/datasets/ds004504/versions/1.0.9
-- Florida: https://osf.io/2v5md/
-- LEMON portal and terms: https://fcon_1000.projects.nitrc.org/indi/retro/MPI_LEMON.html
-- LEMON EEG acquisition instructions and original direct download addresses are in documentation/EEG_Info and the saved S3 listings. LEMON is distributed under PDDL according to the portal.
-- CAP: https://physionet.org/content/capslpdb/1.0.0/ . Open Data Commons Attribution License v1.0. Cite Terzano et al., Atlas, rules, and recording techniques for the scoring of cyclic alternating pattern (CAP) in human sleep, Sleep Medicine2(6):537–553,2001, and the PhysioNet resource.
-- Spectral model: Donoghue et al.2020, https://doi.org/10.1038/s41593-020-00744-x . Pinned FOOOF1.1.1 is used for numerical reproducibility; its deprecation notice is not a fit failure.
-
-Original data terms apply. Files include the exact resampled analysis extracts, not full LEMON/CAP recordings. Source URLs, byte ranges, hashes, metadata, and extraction scripts document their origin. Range hashes authenticate downloaded portions rather than claiming a whole-file hash.
-
-After the analysis commands, run `python build_report.py` and `python verify_run.py`. The input SHA256SUMS file authenticates the supplied package bytes; figures regenerated later can differ in embedded rendering metadata while preserving the numerical results.
+This is retrospective research analysis, not a validated clinical diagnostic device. Statistical intervals are pointwise. Documented amendments are preserved rather than hidden, and healthy-state controls are interpreted as sensitivity analyses rather than perfectly matched disease controls.
