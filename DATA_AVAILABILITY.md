@@ -21,7 +21,7 @@ Original dataset licenses and attribution requirements remain in force. No blank
 
 ## Integrity
 
-`EEG_Control_Runs/SHA256SUMS` records the supplied control-package file hashes. The final execution receipt is `EEG_Control_Runs/receipt.json`; the run verifier is `EEG_Control_Runs/verify_run.py`.
+`SHA256SUMS` records the supplied control-package file hashes. The final execution receipt is `receipt.json`; the run verifier is `verify_run.py`. See `data/README.md` for the canonical input layout and source-by-source acquisition status.
 
 The completed control run reports 444 spectral subject-window rows, 34 paired LEMON participants, 16 CAP candidates with 11 included for eligible state analyses, 8 paired state tests, 6 individualized-peak tests, and 81 planned group tests.
 

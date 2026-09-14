@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software or research package, please cite it."
+title: "ADAP: AD Alpha Parameterization"
+type: software
+authors:
+  - family-names: Minier
+    given-names: Luis
+repository-code: "https://github.com/Anharmoniclabs/ADAP"
+url: "https://github.com/Anharmoniclabs/ADAP"
+date-released: 2026-09-14
+abstract: >-
+  Reproducible analysis and audit package for EEG alpha-pattern experiments and
+  healthy-state sensitivity controls. This is research software, not a clinical
+  diagnostic device.

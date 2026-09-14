@@ -22,12 +22,26 @@ The package's original README is preserved byte-for-byte as [`PACKAGE_README.md`
 
 See [`DATA_AVAILABILITY.md`](DATA_AVAILABILITY.md) and [`REPRODUCE.md`](REPRODUCE.md).
 
+## Repository map
+
+| Location | Purpose |
+|---|---|
+| `data/` | Canonical inputs, acquisition metadata, and provenance notes |
+| `results/` | Frozen numerical outputs, manifests, logs, and generated figures |
+| `documentation/` | Saved source documentation and acquisition records |
+| Root `*.py` | Analysis, acquisition, reporting, and verification entry points |
+| Root `*.md` / `PLAN.json` | Protocol, findings, mathematics, amendments, and limits |
+
+The six upload-batch folders previously named `lemon 1` through `lemon 6` have
+been consolidated into the path used by the code and manifest: `data/lemon/`.
+
 ## Verify the repository snapshot
 
 From a clean clone:
 
 ```bash
 python verify_repository.py
+python verify_run.py
 ```
 
 This validates every manifest-listed file that is available in the repository. The verifier maps the package manifest's `README.md` entry to `PACKAGE_README.md`, because the root README is repository-level documentation. Missing external/reconstructed `data/` assets are reported separately; any missing non-data audit artifact or hash mismatch is an error.
@@ -39,6 +53,9 @@ Use Python 3.12 and the pinned environment:
 ```bash
 python -m pip install -r requirements-lock.txt
 ```
+
+On macOS/Linux, the equivalent one-command setup is `make setup`; `make audit`
+runs the repository integrity, result-count, and Python source checks.
 
 Acquire/reconstruct the remaining documented EEG inputs as described in [`REPRODUCE.md`](REPRODUCE.md), then run:
 
