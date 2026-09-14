@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Luis M. Minier" />
+  <meta name="dcterms.date" content="2026-09-11" />
+  <title>Luis Minier — EEG Topography Manuscript (September 12, 2026)</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Luis Minier — EEG Topography Manuscript (September 12,
+2026)</h1>
+<p class="subtitle">A retrospective research account, numerical audit,
+and plan for independent validation</p>
+<p class="author">Luis M. Minier</p>
+<p class="date">11 September 2026</p>
+</header>
+<p><strong>Manuscript status:</strong> Finalized computational research
+manuscript, version 1.0. Not peer reviewed and not a clinical validation
+study. The numerical replay is documented from the locally available
+OpenNeuro derivative EEG payloads, the Florida processed release, and
+the uploaded Czech archive. Clinical interpretation remains subject to
+independent review.</p>
+<h1 id="abstract">Abstract</h1>
+<p>This paper describes a research path that began with questions about
+representations of Riemann zeta zeros, numerical rank, and the
+difference between a pattern in a coordinate system and a property of
+the underlying object. Those questions were carried into an existing EEG
+research program. Initial experiments combined spectral, recurrence,
+concentration, and multiscale features to search for Alzheimer’s disease
+(AD) markers. An approximately 400-feature representation produced weak
+held-out classification and a non-significant pooled effective-rank
+contrast. These negative results led to a simpler question: does the
+distribution of relative alpha power across scalp electrodes differ from
+a healthy reference pattern?</p>
+<p>A score defined as one minus the spatial Pearson correlation with a
+training-control template was evaluated in OpenNeuro ds004504, a Florida
+State/OSF-derived feature table, and a Czech/Figshare archive. The
+present audit reproduced alpha AD/control AUCs of 0.8573, 0.8323, and
+0.9546 using cohort-specific training-fold control templates. Applying
+the OpenNeuro control template without fitting external controls gave
+AUCs of 0.8188 in Florida and 0.7841 in the Czech cohort. Independently
+scrambling electrode assignments reduced median external alpha AUCs to
+approximately 0.50. Seven Czech participants labeled mild cognitive
+impairment (MCI) had an exploratory source-template AUC of 0.9272
+against 102 controls.</p>
+<p>These numbers support coordinate-dependent discrimination in the
+supplied representations. They do not establish causation, AD
+specificity, prospective early detection, or a transportable diagnostic
+threshold. OpenNeuro raw reconstruction matched the supplied features to
+floating-point precision. Florida was rechecked at the derived-feature
+level. Czech reconstruction reproduced the results using the 19-channel
+order reported in the original peer-reviewed Czech study. That published
+sequence exactly matches the input order used by the reconstruction. The
+article does not separately document the MATLAB serialization indices
+for every stored array type, so the storage-to-label linkage is
+supported by the source publication but is not claimed as independently
+proven from file metadata alone. Preprocessing was not identical across
+cohorts. The proposed contribution is therefore an auditable hypothesis
+and baseline, not a clinical diagnostic claim or a connection between
+zeta zeros and neurodegeneration.</p>
+<p><strong>Keywords:</strong> EEG; alpha topography; Alzheimer’s
+disease; mild cognitive impairment; reference-template deviation;
+reproducibility; negative results; dimensionality.</p>
+<h1 id="plain-language-summary">Plain-language summary</h1>
+<p>An EEG records changing electrical voltages at electrodes on the
+scalp. This work asks whether the <em>arrangement</em> of a familiar
+rhythm across those electrodes contains information that an average
+power value misses. The comparison is like comparing the shape of two
+temperature maps, rather than just comparing their average temperatures.
+It is not a map of individual neurons or a direct picture of damaged
+tissue.</p>
+<p>The research did not follow a straight line. I initially looked for
+structure using more elaborate mathematical representations. Some
+apparent advantages disappeared when the comparison became fairer. A
+large collection of EEG measurements did not reliably identify the
+disease. The method that remained worth testing was simpler: compare one
+person’s alpha-power pattern with a reference made from healthy
+controls.</p>
+<p>The resulting scores separated labeled groups in the available data.
+Important qualifications remain. The most dramatic Czech result could be
+affected by differences in how patient and control files were stored and
+mapped to electrode names. The Florida data had already been processed
+and were much shorter than the source recordings. A fixed decision
+cutoff did not transfer reliably in the earlier audit. The seven MCI
+cases are a reason to investigate further, not evidence that the score
+predicts Alzheimer’s disease.</p>
+<h1 id="how-the-question-developed">1. How the question developed</h1>
+<h2 id="starting-with-zeros-coordinates-and-numerical-stability">1.1
+Starting with zeros, coordinates, and numerical stability</h2>
+<p>My immediate route into this phase of the work came from experiments
+involving the Riemann zeta function and its zeros. I had also been
+working with signal representations and EEG, so this was a
+back-and-forth investigation rather than a clean progression from one
+field to another.</p>
+<p>For real part greater than one, the zeta function is defined by</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ζ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mo accent="false">∞</mo></munderover><msup><mi>n</mi><mrow><mo>−</mo><mi>s</mi></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\zeta(s)=\sum_{n=1}^{\infty}n^{-s}.
+</annotation></semantics></math></p>
+<p>Its continuation and zeros belong to analytic number theory. The
+Riemann hypothesis concerns the real parts of its nontrivial zeros. A
+finite image, spectral fit, or EEG experiment does not answer that
+question [1]. In my experiments, zero ordinates and arithmetic
+constructions were treated as inputs to numerical representations. I
+wanted to know which apparent structures survived a change of basis,
+which were artifacts of filtering, and which were unreliable because the
+matrices were poorly conditioned.</p>
+<p>The retained research record is specific about what did not follow.
+Entropy reductions obtained by changing a smoothing parameter did not
+establish special arithmetic significance for the Basel constant or
+silver ratio. A proposed entropy law did not become an RH lemma. A
+finite positive matrix did not prove positivity over every possible test
+function. Very small eigenvalues required numerical error control, not
+stronger language [2].</p>
+<p>The useful lesson was not that prime numbers explain brain disease.
+It was that a representation can manufacture a persuasive pattern.
+Before interpreting that pattern, I had to identify what was being
+measured, the comparison being made, and the transformations that would
+leave the result unchanged.</p>
+<h2 id="what-the-rft-work-contributed-and-what-it-did-not">1.2 What the
+RFT work contributed, and what it did not</h2>
+<p>The project used “RFT” for related but non-identical experiments. One
+line concerned nonuniform phase grids and unitary or polar-factor
+constructions. Another encoded an EEG segment as a sequence of SU(2)
+matrices and summarized a recurrence-like phase-variance curve. These
+are not interchangeable algorithms. A claim made for a complete unitary
+transform cannot simply be transferred to a nonlinear encoding followed
+by feature selection.</p>
+<p>The EEG recurrence experiments kept quantities such as a minimum
+variance, the lag of that minimum, basin width, local slopes, and a
+second minimum. The intention was to retain more information than a
+single favorable minimum. Historical signal-reconstruction improvements
+were motivation for using these tools, but improved reconstruction is
+not evidence of improved disease discrimination [2,3]. A transform can
+reconstruct both patients and controls better without helping tell them
+apart.</p>
+<p>The eventual alpha-template baseline reported here uses Welch
+spectral power. It does not use zeta zeros, a silver-ratio parameter, or
+SU(2) operators. That separation is essential. The RFT work helped
+generate questions and negative controls; it is not the mechanism
+responsible for the baseline AUCs in this paper.</p>
+<h2 id="the-navierstokes-connection-was-methodological">1.3 The
+Navier–Stokes connection was methodological</h2>
+<p>OpenAI’s September 2026 discussion of a Navier–Stokes construction
+prompted questions about concentration, scaling, and cancellation [4]. I
+asked whether related diagnostic quantities might expose structure in
+EEG that ordinary averages concealed. That motivated concentration and
+multiscale feature families, not a claim that scalp EEG satisfies the
+Navier–Stokes equations.</p>
+<p>The shared idea was to examine how structure changes with scale and
+representation. There is no derivation here from fluid dynamics to
+Alzheimer pathology. A visually similar wave pattern is not evidence of
+the same governing equations. This paper treats that episode as part of
+the research history, not as a mathematical foundation for the clinical
+interpretation.</p>
+<h2
+id="the-practical-problem-too-many-descriptions-too-little-stable-information">1.4
+The practical problem: too many descriptions, too little stable
+information</h2>
+<p>The initial EEG feature table contained 65 AD/control subjects and
+410 columns including metadata, with 404 candidate numeric features and
+approximately 400 surviving the pooled preprocessing. Spectral,
+recurrence, concentration, and multiscale measurements were aggregated
+across channels using mean, standard deviation, minimum, and
+maximum.</p>
+<p>The strongest screened variable was cross-channel variability in
+relative theta power. Its apparent AUC was 0.7500 and its uncorrected
+p-value was 0.000587, but its false-discovery-rate-adjusted value was
+0.229923. The top recurrence and multiscale variables also failed the
+multiple-testing threshold. The 16-feature model’s recorded outer-fold
+AUC was 0.613 and balanced accuracy was 0.546 [3].</p>
+<p>These are negative findings for the proposed panel, not evidence that
+a hidden disease manifold had been located. Repeated feature selection
+across overlapping training folds was useful for describing stability,
+but it was not independent replication. The low held-out performance
+justified changing the question; it did not justify inventing a
+biological explanation for why the model struggled.</p>
+<h1 id="why-the-dimensionality-explanation-had-to-change">2. Why the
+dimensionality explanation had to change</h1>
+<h2 id="three-meanings-of-dimension">2.1 Three meanings of
+“dimension”</h2>
+<p>A feature count, an effective covariance rank, and a dynamical
+complexity estimate answer different questions. A table with 400 columns
+has 400 measured coordinates. It need not contain 400 independent
+directions of variation. Nor does its rank tell us the number of
+dynamical degrees of freedom in a person’s brain.</p>
+<p>For a centered subject-by-feature matrix, write the following, where
+superscript
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+denotes complex conjugate transpose:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>c</mi></msub><mo>=</mo><mi>U</mi><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>s</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><msup><mi>V</mi><mi>H</mi></msup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>λ</mi><mi>k</mi></msub><mo>=</mo><mfrac><msubsup><mi>s</mi><mi>k</mi><mn>2</mn></msubsup><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>p</mi><mi>k</mi></msub><mo>=</mo><mfrac><msub><mi>λ</mi><mi>k</mi></msub><mrow><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>λ</mi><mi>j</mi></msub></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_c=U\,\mathrm{diag}(s_1,\ldots,s_r)\,V^{H},
+\qquad \lambda_k=\frac{s_k^2}{n-1},
+\qquad p_k=\frac{\lambda_k}{\sum_j\lambda_j}.
+</annotation></semantics></math></p>
+<p>The covariance-spectrum quantities used in the earlier experiments
+were</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">f</mi></mrow></msub><mo>=</mo><mo>exp</mo><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>p</mi><mi>k</mi></msub><mo>log</mo><msub><mi>p</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>D</mi><mrow><mi mathvariant="normal">P</mi><mi mathvariant="normal">R</mi></mrow></msub><mo>=</mo><mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>λ</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mrow><munder><mo>∑</mo><mi>k</mi></munder><msubsup><mi>λ</mi><mi>k</mi><mn>2</mn></msubsup></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+D_{\mathrm{eff}}=\exp\!\left(-\sum_k p_k\log p_k\right),
+\qquad
+D_{\mathrm{PR}}=\frac{(\sum_k\lambda_k)^2}{\sum_k\lambda_k^2}.
+</annotation></semantics></math></p>
+<p>They summarize how evenly variance is distributed over linear modes.
+They are not correlation dimension, fractal dimension, or a direct count
+of neural processes. Here “effective rank” specifically uses normalized
+<em>covariance eigenvalues</em>, rather than an alternative definition
+based on unsquared singular values.</p>
+<p>The pooled result at 28 retained coordinates was 12.5405 for AD and
+8.2987 for controls. However, the recorded permutation p-value was
+0.4228, with a bootstrap interval for the gap spanning zero. It did not
+establish population-level dimensionality inflation [3].</p>
+<h2 id="a-numerical-artifact-in-the-earlier-interpretation">2.2 A
+numerical artifact in the earlier interpretation</h2>
+<p>For a centered matrix with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+subjects,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>rank</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>c</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mo>min</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>,</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{rank}(X_c)\leq\min(p,n-1).
+</annotation></semantics></math></p>
+<p>The control group had 29 people. Its centered observations therefore
+occupy at most 28 linearly independent directions. A PCA fitted and
+reconstructed on those same observations can achieve zero reconstruction
+error at 28 components regardless of a biological explanation. The AD
+group had 36 people and a different rank ceiling. Earlier wording that
+treated the control reconstruction endpoint as evidence of a simpler
+healthy brain was wrong.</p>
+<p>A fair rank comparison must address group size, scaling, missing
+features, and finite-sample uncertainty. Resampling with replacement
+creates duplicate rows and changes the number of distinct observations.
+Such effects matter especially when the sample is small relative to the
+feature count.</p>
+<h2 id="within-person-and-between-person-variation">2.3 Within-person
+and between-person variation</h2>
+<p>A matrix whose rows are people describes differences <em>between
+people</em>. A matrix whose rows are EEG windows from one person
+describes variation <em>within that recording</em>. The corresponding
+covariance decomposition is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>𝔼</mi><mo stretchy="false" form="prefix">{</mo><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>∣</mo><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">}</mo><mo>+</mo><mo>Cov</mo><mo stretchy="false" form="prefix">{</mo><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>∣</mo><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\operatorname{Cov}(X)
+=\mathbb{E}\{\operatorname{Cov}(X\mid I)\}
++\operatorname{Cov}\{\mathbb{E}(X\mid I)\},
+</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+identifies the person. Effective rank is nonlinear, so the effective
+ranks of these two terms do not add.</p>
+<p>Lower temporal complexity within individuals can coexist with greater
+heterogeneity between individuals. But that possibility is not itself a
+result. Our spectral window-fingerprint experiments did not supply a
+convincing general within-person complexity difference. They also used
+non-overlapping windows, which should not have been called statistically
+independent merely because they did not overlap.</p>
+<h2 id="spatial-summaries-were-not-spatial-maps">2.4 Spatial summaries
+were not spatial maps</h2>
+<p>The original mean/standard-deviation/minimum/maximum summaries
+discard electrode identity. Reordering a person’s electrodes leaves
+those summaries unchanged. Therefore an electrode-identity ablation
+cannot explain a change in that original table by itself: the identity
+was already absent.</p>
+<p>The later scalp-topography test was a new representation. It kept one
+feature per named electrode. Its motivation came from the earlier
+negative results, but it did not retroactively prove that those earlier
+results were caused by anatomical heterogeneity.</p>
+<h1 id="data-and-provenance">3. Data and provenance</h1>
+<p>Three datasets entered the current numerical audit. The datasets are
+distinct; this is not three independent research teams reproducing an
+analysis. The same computational workflow was applied to different
+cohorts.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dataset</th>
+<th style="text-align: left;">Records used in this audit</th>
+<th style="text-align: left;">Representation and replay status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">OpenNeuro ds004504</td>
+<td style="text-align: left;">36 AD, 29 controls, 23 FTD</td>
+<td style="text-align: left;">All 88 locally available derivative
+<code>.set</code> EEG payloads reconstructed and checked</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Florida State / OSF</td>
+<td style="text-align: left;">80 AD, 12 controls</td>
+<td style="text-align: left;">Public processed ADFSU release
+(<code>X.dat</code>, <code>y.dat</code>, <code>meta.json</code>) plus
+derived feature table; processed/feature-level replay verified</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Czech / Figshare</td>
+<td style="text-align: left;">57 usable AD, 102 controls, 7 MCI</td>
+<td style="text-align: left;">Uploaded <code>dataset.zip</code>;
+reconstructed with the 19-channel sequence reported by Cejnek et
+al.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="openneuro-discovery-dataset">3.1 OpenNeuro discovery
+dataset</h2>
+<p>The ds004504 data descriptor provides the clinical cohort and
+acquisition context [5]. The uploaded snapshot identifies version 1.0.9
+and CC0 distribution [6]. The EEG files inspected here have 19 named
+scalp channels at 500 Hz; their stored reference field reads A1 A2. This
+is the derivative-data reference, not an assertion that every stage of
+original acquisition used the same reference.</p>
+<p>All 88 uploaded payloads matched the SHA-256 values encoded in the
+derivative pointers of the supplied GitHub/DataLad snapshot. Duplicate
+uploads were deduplicated by subject and byte hash. Recomputing the
+five-band features from the actual EEG samples reproduced the saved
+feature table with maximum absolute difference
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4.44</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>16</mn></mrow></msup></mrow><annotation encoding="application/x-tex">4.44\times10^{-16}</annotation></semantics></math>.
+This is strong computational provenance for the source table. It is not
+independent verification of clinical labels.</p>
+<h2 id="florida-external-dataset">3.2 Florida external dataset</h2>
+<p>The associated publication describes 80 probable-AD and 12 healthy
+eyes-closed recordings, 19 scalp electrodes, 128-Hz sampling, and
+eight-second segments previously limited to 0.5–30 Hz [7,8]. Earlier
+execution used a processed LEAD release derived from the OSF data, with
+resampled, overlapping segments [9]. The stored feature table is the
+input replayed in the present audit.</p>
+<p>The original Florida signal-to-feature reconstruction was not
+independently repeated during this manuscript build. A second technical
+problem is unavoidable: a 4096-sample Welch window with 2048-sample
+overlap cannot be applied literally to an 800-sample processed or
+1024-sample original eight-second recording. The historical external run
+shortened the spectral window. The score formula and band definitions
+were retained, but the raw extractor was not unchanged. Prior filtering
+above 30 Hz also prevents a truly equivalent five-band denominator.</p>
+<h2 id="czech-archive-and-channel-provenance">3.3 Czech archive and
+channel provenance</h2>
+<p>The Czech dataset contains nominally 59 AD, seven MCI, and 102
+controls [10,11]. AD33 and AD44 have no usable fragments. Ten additional
+patient fragments with 17, 18, or 20 columns were excluded rather than
+guessing the missing or extra channels. The retained sample is 57 AD,
+seven MCI, and 102 controls.</p>
+<p>The archive combines patient <code>export</code> arrays with control
+<code>segmenty</code> arrays and two additional control fragment
+folders. The reconstruction retained 19 columns from valid patient
+fragments and the first 19 rows from the control arrays. The
+peer-reviewed source reports its per-channel analysis in the sequence
+<code>Fp1, Fp2, F7, Fz, F3, F4, F8, T3, C3, Cz, C4, T4, T5, P3, Pz, P4, T6, O1, O2</code>
+[10]. This is exactly the input sequence used by the reconstruction
+before reordering to the frozen OpenNeuro output order. That agreement
+materially strengthens channel provenance. The paper does not separately
+state that every MATLAB <code>export</code> column and
+<code>segmenty</code> row was serialized in that sequence, so this
+manuscript does not elevate the match into a stronger file-format claim
+than the source supports.</p>
+<p>The archive readme specifies original rates of 256 or 128 Hz. The
+original study describes harmonization to 128 Hz [10]. The replay
+follows the documented resampling and within-fragment PSD rules. The
+seven MCI/control alpha maps reproduce the saved table exactly. Final
+input checks identified zero total five-band power at the mapped Cz
+coordinate in controls <code>26887fir</code> and <code>7147fir</code>.
+The denominator floor converts those entries to zero relative power
+rather than a normalized five-band distribution. They are retained in
+the recorded primary calculation and explicitly flagged so that future
+replication can prespecify exclusion or missing-channel handling.</p>
+<h1 id="the-spectral-topography-method">4. The spectral-topography
+method</h1>
+<h2 id="from-time-series-to-band-power">4.1 From time series to band
+power</h2>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mi>i</mi><mo>,</mo><mi>c</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>n</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">x_{i,c}[n]</annotation></semantics></math>
+be the EEG for subject
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
+electrode
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>,
+and sample
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>.
+Welch’s method averages windowed periodograms [12]. With a window
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>n</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">w[n]</annotation></semantics></math>
+of length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>,
+sampling rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mi>s</mi></msub><annotation encoding="application/x-tex">F_s</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+windows, a one-sided density estimate is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>S</mi><mo accent="true">̂</mo></mover><mrow><mi>i</mi><mo>,</mo><mi>c</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>f</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><msub><mi>g</mi><mi>k</mi></msub><mrow><mi>K</mi><msub><mi>F</mi><mi>s</mi></msub><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>L</mi><mo>−</mo><mn>1</mn></mrow></munderover><mi>w</mi><msup><mrow><mo stretchy="true" form="prefix">[</mo><mi>n</mi><mo stretchy="true" form="postfix">]</mo></mrow><mn>2</mn></msup></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>K</mi></munderover><msup><mrow><mo stretchy="true" form="prefix">|</mo><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>L</mi><mo>−</mo><mn>1</mn></mrow></munderover><mi>w</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>n</mi><mo stretchy="true" form="postfix">]</mo></mrow><mspace width="0.167em"></mspace><msub><mover><mi>x</mi><mo accent="true">̃</mo></mover><mrow><mi>i</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>j</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>n</mi><mo stretchy="true" form="postfix">]</mo></mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>π</mi><mi mathvariant="normal">i</mi><mi>k</mi><mi>n</mi><mi>/</mi><mi>L</mi></mrow></msup><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat S_{i,c}(f_k)=
+\frac{g_k}{K F_s\sum_{n=0}^{L-1}w[n]^2}
+\sum_{j=1}^{K}
+\left|\sum_{n=0}^{L-1}
+ w[n]\,\widetilde x_{i,c,j}[n]e^{-2\pi\mathrm{i}kn/L}\right|^2.
+</annotation></semantics></math></p>
+<p>Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">̃</mo></mover><annotation encoding="application/x-tex">\widetilde x</annotation></semantics></math>
+is the detrended segment and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>g</mi><mi>k</mi></msub><annotation encoding="application/x-tex">g_k</annotation></semantics></math>
+is the one-sided doubling factor, except at DC and the Nyquist
+frequency. The source computation uses a Hann window, constant
+detrending,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mn>4096</mn></mrow><annotation encoding="application/x-tex">L=4096</annotation></semantics></math>,
+and 2048 overlapping samples. It operates over the available full
+derivative recording.</p>
+<p>The five band intervals are delta 1–4 Hz, theta 4–8 Hz, alpha 8–13
+Hz, beta 13–30 Hz, and gamma 30–45 Hz. Bins use a lower-inclusive,
+upper-exclusive rule, except gamma includes its upper boundary. Power is
+calculated by trapezoidal integration over the included bins:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mrow><mi>i</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi></mrow></msub><mo>=</mo><msub><mo>∫</mo><mrow><mi>f</mi><mo>∈</mo><mi>b</mi></mrow></msub><msub><mover><mi>S</mi><mo accent="true">̂</mo></mover><mrow><mi>i</mi><mo>,</mo><mi>c</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mi>d</mi><mi>f</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+P_{i,b,c}=\int_{f\in b}\widehat S_{i,c}(f)\,df.
+</annotation></semantics></math></p>
+<p>The discrete bin rule is part of reproducibility: it is not identical
+to analytically integrating a continuous spectrum exactly to every band
+edge.</p>
+<p>For Czech fragments, spectra are computed within each retained
+fragment, not across concatenation boundaries. A 256-Hz fragment is
+resampled to 128 Hz. Window length is capped at available samples and
+overlap at half that length, up to the original 2048 samples. Fragment
+powers are combined with duration-proportional weights. These are
+documented adaptations, not a claim of identical spectral resolution
+across datasets.</p>
+<h2 id="relative-power-and-a-19-electrode-vector">4.2 Relative power and
+a 19-electrode vector</h2>
+<p>At each electrode,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>i</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>P</mi><mrow><mi>i</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi></mrow></msub><mrow><munderover><mo>∑</mo><mrow><mi>q</mi><mo>=</mo><mn>1</mn></mrow><mn>5</mn></munderover><msub><mi>P</mi><mrow><mi>i</mi><mo>,</mo><mi>q</mi><mo>,</mo><mi>c</mi></mrow></msub></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝐱</mi><mrow><mi>i</mi><mo>,</mo><mi>α</mi></mrow></msub><mo>=</mo><msubsup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>R</mi><mrow><mi>i</mi><mo>,</mo><mi>α</mi><mo>,</mo><mi>c</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>c</mi><mo>=</mo><mn>1</mn></mrow><mn>19</mn></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+R_{i,b,c}=\frac{P_{i,b,c}}{\sum_{q=1}^{5}P_{i,q,c}},
+\qquad
+\mathbf{x}_{i,\alpha}=(R_{i,\alpha,c})_{c=1}^{19}.
+</annotation></semantics></math></p>
+<p>This removes a common multiplicative gain in the band powers at that
+electrode. It does not remove reference effects, differences in noise
+spectra, or changes in the denominator caused by other bands. A change
+in relative alpha can occur because alpha changes, because another band
+changes, or both.</p>
+<p>The vector preserves electrode names. Its entries are not
+interchangeable when it is compared with an anatomically labeled
+reference. However, the word “topography” here means a scalp-electrode
+pattern, not a reconstructed cortical source map.</p>
+<h2 id="a-healthy-reference-deviation-score">4.3 A healthy-reference
+deviation score</h2>
+<p>For training controls
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow></msub><annotation encoding="application/x-tex">H_{\mathrm{train}}</annotation></semantics></math>,
+define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐡</mi><mi>α</mi></msub><mo>=</mo><mfrac><mn>1</mn><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>H</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow></msub><mo stretchy="true" form="postfix">|</mo></mrow></mfrac><munder><mo>∑</mo><mrow><mi>j</mi><mo>∈</mo><msub><mi>H</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow></msub></mrow></munder><msub><mi>𝐱</mi><mrow><mi>j</mi><mo>,</mo><mi>α</mi></mrow></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{h}_{\alpha}=
+\frac{1}{|H_{\mathrm{train}}|}
+\sum_{j\in H_{\mathrm{train}}}\mathbf{x}_{j,\alpha}.
+</annotation></semantics></math></p>
+<p>The score is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>α</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn><mo>−</mo><mi>ρ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><msub><mi>𝐡</mi><mi>α</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+M_\alpha(\mathbf{x})=1-\rho(\mathbf{x},\mathbf{h}_\alpha),
+</annotation></semantics></math></p>
+<p>where correlation is computed across electrodes, not across time.
+After centering and normalizing the vectors,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐮</mi><mo>=</mo><mfrac><mrow><mi>𝐱</mi><mo>−</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>𝟏</mn></mrow><mrow><mo stretchy="false" form="postfix">∥</mo><mi>𝐱</mi><mo>−</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><mn>𝟏</mn><msub><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msub></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>𝐯</mi><mo>=</mo><mfrac><mrow><mi>𝐡</mi><mo>−</mo><mover><mi>h</mi><mo accent="true">‾</mo></mover><mn>𝟏</mn></mrow><mrow><mo stretchy="false" form="postfix">∥</mo><mi>𝐡</mi><mo>−</mo><mover><mi>h</mi><mo accent="true">‾</mo></mover><mn>𝟏</mn><msub><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msub></mrow></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathbf{u}=\frac{\mathbf{x}-\bar x\mathbf{1}}
+{\|\mathbf{x}-\bar x\mathbf{1}\|_2},\qquad
+\mathbf{v}=\frac{\mathbf{h}-\bar h\mathbf{1}}
+{\|\mathbf{h}-\bar h\mathbf{1}\|_2},
+</annotation></semantics></math></p>
+<p>we have</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>α</mi></msub><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>𝐮</mi><mi>T</mi></msup><mi>𝐯</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="postfix">∥</mo><mi>𝐮</mi><mo>−</mo><mi>𝐯</mi><msubsup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn><mn>2</mn></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+M_\alpha=1-\mathbf{u}^{T}\mathbf{v}
+=\frac12\|\mathbf{u}-\mathbf{v}\|_2^2.
+</annotation></semantics></math></p>
+<p>Thus the score compares the <em>shape</em> of the maps. It is
+unchanged by a positive scalar amplification and uniform offset of
+either map, considered at this vector stage. Its range is zero to two;
+it is not a probability. At the input level, normalized band powers
+should sum to one except for the two explicitly flagged legacy Czech
+zero-power channels. A flat map has undefined correlation and must be
+flagged, not assigned a convenient score.</p>
+<p>Earlier descriptions called this a “healthy manifold.” The
+implementation is more modest: it is a mean healthy template followed by
+correlation distance. It does not fit a nonlinear manifold.
+Healthy-reference novelty detection is not a new general idea; the
+original Czech study itself investigated novelty detection [10]. No
+claim of worldwide priority is made for the formula.</p>
+<h2 id="two-different-validation-questions">4.4 Two different validation
+questions</h2>
+<p><strong>Local out-of-fold scoring.</strong> Five stratified subject
+folds are used. For each test fold, the healthy template is built only
+from controls in the other four folds. The score has no learned feature
+weights. AD or FTD labels identify the comparison and fold
+stratification, but no test subject supplies the reference for its own
+prediction.</p>
+<p><strong>Source-template transfer.</strong> The mean map from all 29
+OpenNeuro controls is applied to every external subject. No Florida or
+Czech control is used to fit that reference. This is the stricter
+transfer test of a specific reference. Local external OOF scoring
+instead asks whether the same method works after a new cohort supplies
+training controls. Those questions must not be presented as the same
+experiment.</p>
+<h1 id="statistical-tests-and-their-limits">5. Statistical tests and
+their limits</h1>
+<h2 id="what-auc-measures">5.1 What AUC measures</h2>
+<p>With case scores
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mi>i</mi></msub><annotation encoding="application/x-tex">s_i</annotation></semantics></math>
+and control scores
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mi>j</mi></msub><annotation encoding="application/x-tex">s_j</annotation></semantics></math>,
+empirical AUC is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">C</mi></mrow><mo accent="true">̂</mo></mover><mo>=</mo><mfrac><mn>1</mn><mrow><msub><mi>n</mi><mi>A</mi></msub><msub><mi>n</mi><mi>H</mi></msub></mrow></mfrac><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><mi>A</mi></mrow></munder><munder><mo>∑</mo><mrow><mi>j</mi><mo>∈</mo><mi>H</mi></mrow></munder><mrow><mo stretchy="true" form="prefix">[</mo><mn>𝟏</mn><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mi>i</mi></msub><mo>&gt;</mo><msub><mi>s</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mfrac displaystyle="false"><mn>1</mn><mn>2</mn></mfrac><mn>𝟏</mn><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mi>i</mi></msub><mo>=</mo><msub><mi>s</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat{\mathrm{AUC}}=
+\frac{1}{n_A n_H}
+\sum_{i\in A}\sum_{j\in H}
+\left[\mathbf{1}(s_i&gt;s_j)+\tfrac12\mathbf{1}(s_i=s_j)\right].
+</annotation></semantics></math></p>
+<p>It measures how often a case is ranked above a control. It is not the
+fraction of patients correctly diagnosed. Accuracy and balanced accuracy
+require a specified decision threshold. The score direction was kept
+fixed: larger healthy-template deviation means a higher case score.
+Values below 0.5 were not flipped after seeing the outcome.</p>
+<h2 id="confidence-intervals-and-permutations">5.2 Confidence intervals
+and permutations</h2>
+<p>The reported intervals use 5,000 stratified subject bootstrap
+resamples of the <em>already computed scores</em>. They are conditional
+on the fitted references and available sample. For OOF results, they do
+not include uncertainty from refitting the pipeline, earlier feature
+selection, or shared training samples. They should not be advertised as
+complete clinical-performance uncertainty. Small clinical samples
+require particular caution [13].</p>
+<p>For label permutations, local OOF analysis repeats the split and
+training-template construction under every shuffled label vector.
+Source-template analysis keeps the external scores fixed and permutes
+only labels. For an observed statistic
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+draws,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mfrac><mrow><mn>1</mn><mo>+</mo><munderover><mo>∑</mo><mrow><mi>b</mi><mo>=</mo><mn>1</mn></mrow><mi>B</mi></munderover><mn>𝟏</mn><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>T</mi><mi>b</mi></msub><mo>≥</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>B</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+p=\frac{1+\sum_{b=1}^{B}\mathbf{1}(T_b\geq T)}{B+1}.
+</annotation></semantics></math></p>
+<p>The plus-one correction prevents a Monte Carlo p-value from being
+reported as zero [14]. The current AUC audit uses 2,000 permutations.
+Its smallest reportable value is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>2001</mn><mo>=</mo><mn>0.00049975</mn></mrow><annotation encoding="application/x-tex">1/2001=0.00049975</annotation></semantics></math>.
+These are one-sided tests of the recorded larger-deviation hypothesis.
+They do not correct for confounding that makes labels non-exchangeable
+with respect to acquisition conditions.</p>
+<p>Holm adjustment across the 12 replayed AUC endpoints is included in
+the machine-readable table. It is not a correction for every decision
+made during the preceding exploratory search. The initial feature search
+used Benjamini–Hochberg correction [15]. Neither adjustment converts the
+conversation’s sequential choices into a prospective registered
+trial.</p>
+<h2 id="group-agreement-without-a-diagnostic-score">5.3 Group agreement
+without a diagnostic score</h2>
+<p>For group
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math>,
+define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>r</mi><mo accent="true">‾</mo></mover><mi>G</mi></msub><mo>=</mo><mfrac><mn>2</mn><mrow><msub><mi>n</mi><mi>G</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>n</mi><mi>G</mi></msub><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><munder><mo>∑</mo><mrow><mi>i</mi><mo>&lt;</mo><mi>j</mi><mo>;</mo><mspace width="0.167em"></mspace><mi>i</mi><mo>,</mo><mi>j</mi><mo>∈</mo><mi>G</mi></mrow></munder><mi>ρ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>𝐱</mi><mrow><mi>i</mi><mo>,</mo><mi>α</mi></mrow></msub><mo>,</mo><msub><mi>𝐱</mi><mrow><mi>j</mi><mo>,</mo><mi>α</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>T</mi><mo>=</mo><msub><mover><mi>r</mi><mo accent="true">‾</mo></mover><mi>H</mi></msub><mo>−</mo><msub><mover><mi>r</mi><mo accent="true">‾</mo></mover><mi>A</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\bar r_G=\frac{2}{n_G(n_G-1)}
+\sum_{i&lt;j;\,i,j\in G}\rho(\mathbf{x}_{i,\alpha},\mathbf{x}_{j,\alpha}),
+\qquad T=\bar r_H-\bar r_A.
+</annotation></semantics></math></p>
+<p>Although there are many pairs, pairs sharing a person are not
+independent observations. Significance was therefore assessed by
+permuting <em>subject labels</em>, not by treating pair counts as a
+larger sample. The current audit uses 5,000 permutations for this
+test.</p>
+<h2 id="what-coordinate-scrambling-can-establish">5.4 What coordinate
+scrambling can establish</h2>
+<p>Two controls are necessary. If the <strong>same</strong> permutation
+is applied to every subject and the reference, the score must remain
+unchanged. That is a mathematical check on indexing. If a
+<strong>different</strong> permutation is applied to each subject while
+the reference stays fixed, electrode correspondence is broken.</p>
+<p>Loss of discrimination under the second test shows that the
+implementation uses coordinate correspondence. It does not identify the
+origin of that information. Genuine physiology, reference differences,
+and group-specific channel-mapping mistakes can all depend on
+coordinates.</p>
+<p>Sorting each subject’s values is a separate ablation. It keeps the
+distribution but changes every map into order statistics. Sorting
+mechanically makes many vectors more alike; the rise in correlation is
+not a causal estimate of the percentage of disease “explained by
+location.” Appendix A gives the algebra.</p>
+<h1 id="results-from-the-present-replay">6. Results from the present
+replay</h1>
+<h2 id="alpha-deviation">6.1 Alpha deviation</h2>
+<p>Table 1 contains results recomputed for this manuscript from the
+supplied source and Florida tables and the reconstructed Czech table.
+Numbers from earlier messages are not silently averaged together. Slight
+interval differences from earlier reports reflect the present fixed
+resampling seeds.</p>
+<p><strong>Table 1. Alpha-template discrimination.</strong> Confidence
+intervals are fixed-score, subject-bootstrap intervals, with the
+limitations in Section 5.2.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: left;">Reference</th>
+<th style="text-align: right;">AUC</th>
+<th style="text-align: left;">Conditional 95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">OpenNeuro AD / control</td>
+<td style="text-align: left;">Training-fold controls</td>
+<td style="text-align: right;">0.8573</td>
+<td style="text-align: left;">0.7567–0.9406</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OpenNeuro FTD / control</td>
+<td style="text-align: left;">Training-fold controls</td>
+<td style="text-align: right;">0.8291</td>
+<td style="text-align: left;">0.7061–0.9295</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Florida AD / control</td>
+<td style="text-align: left;">Training-fold controls</td>
+<td style="text-align: right;">0.8323</td>
+<td style="text-align: left;">0.6604–0.9771</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Florida AD / control</td>
+<td style="text-align: left;">OpenNeuro controls</td>
+<td style="text-align: right;">0.8188</td>
+<td style="text-align: left;">0.6500–0.9542</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Czech AD / control</td>
+<td style="text-align: left;">Training-fold controls</td>
+<td style="text-align: right;">0.9546</td>
+<td style="text-align: left;">0.9226–0.9811</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Czech AD / control</td>
+<td style="text-align: left;">OpenNeuro controls</td>
+<td style="text-align: right;">0.7841</td>
+<td style="text-align: left;">0.7021–0.8566</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Czech MCI / control</td>
+<td style="text-align: left;">OpenNeuro controls</td>
+<td style="text-align: right;">0.9272</td>
+<td style="text-align: left;">0.8151–0.9986</td>
+</tr>
+</tbody>
+</table>
+<p>For every alpha endpoint in Table 1, the current AUC permutation
+p-value is 0.00049975 at the 2,000-draw resolution. The corrected value
+across the 12 audit endpoints is approximately 0.0060. These tests
+support discrimination under the current assumptions; they do not
+resolve the Czech row-mapping issue or the selection history.</p>
+<p>The strongest Czech local AUC, 0.9546, uses Czech training controls
+and can exploit cohort-specific regularities. The source-template AUC,
+0.7841, is the more demanding transfer result. Florida shows the same
+distinction: 0.8323 with local training controls and 0.8188 with the
+source reference. The source-template values are the appropriate numbers
+when discussing transport of a fixed healthy reference.</p>
+<p>Across 100 fold seeds, source alpha AD/control AUC averaged 0.8504
+with a standard deviation of 0.0061; Florida averaged 0.8308 with
+standard deviation 0.0050; Czech averaged 0.9551 with standard deviation
+0.0008. Those narrow ranges indicate limited sensitivity to fold
+assignment within these fixed samples. They are not 100 new clinical
+replications.</p>
+<figure>
+<p><em>Publication note: the original Figure 1 image was not included with the recovered manuscript text. Its caption is retained below; see the manuscript's numerical tables.</em></p>
+<figcaption aria-hidden="true">Figure 1. Alpha AUCs from the executed
+audit. Error bars are conditional fixed-score bootstrap intervals, not
+complete clinical-performance uncertainty. Czech results retain the
+channel-mapping qualification.</figcaption>
+</figure>
+<h2 id="delta-did-not-transfer-as-well">6.2 Delta did not transfer as
+well</h2>
+<p>Delta was the earlier primary marker and is retained in the record
+rather than replaced by a favorable alpha-only narrative.</p>
+<p><strong>Table 2. Delta-template discrimination.</strong></p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: left;">Reference</th>
+<th style="text-align: right;">AUC</th>
+<th style="text-align: left;">Conditional 95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">OpenNeuro AD / control</td>
+<td style="text-align: left;">Training-fold controls</td>
+<td style="text-align: right;">0.8764</td>
+<td style="text-align: left;">0.7845–0.9521</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OpenNeuro FTD / control</td>
+<td style="text-align: left;">Training-fold controls</td>
+<td style="text-align: right;">0.8546</td>
+<td style="text-align: left;">0.7406–0.9460</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Florida AD / control</td>
+<td style="text-align: left;">Training-fold controls</td>
+<td style="text-align: right;">0.7354</td>
+<td style="text-align: left;">0.5229–0.9167</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Florida AD / control</td>
+<td style="text-align: left;">OpenNeuro controls</td>
+<td style="text-align: right;">0.7469</td>
+<td style="text-align: left;">0.5469–0.9177</td>
+</tr>
+</tbody>
+</table>
+<p>The current Florida delta permutation p-values are 0.0030, but the
+AUCs are materially lower than in the source cohort. Alpha therefore
+became the prioritized cross-cohort candidate after Florida, not before
+the entire investigation began. The Czech alpha test followed that
+decision. A future study must treat this as the end of discovery and
+begin a genuinely prespecified evaluation.</p>
+<h2 id="alpha-agreement-between-people">6.3 Alpha agreement between
+people</h2>
+<p><strong>Table 3. Mean pairwise alpha-map correlations.</strong>
+“Case” refers to the group in the first column.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Cohort and case group</th>
+<th style="text-align: right;">Case agreement</th>
+<th style="text-align: right;">Control agreement</th>
+<th style="text-align: right;">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Source A</td>
+<td style="text-align: right;">0.5164</td>
+<td style="text-align: right;">0.8627</td>
+<td style="text-align: right;">0.3462</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Source F</td>
+<td style="text-align: right;">0.5975</td>
+<td style="text-align: right;">0.8627</td>
+<td style="text-align: right;">0.2652</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Florida A</td>
+<td style="text-align: right;">0.3232</td>
+<td style="text-align: right;">0.6517</td>
+<td style="text-align: right;">0.3285</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Czech A</td>
+<td style="text-align: right;">0.0254</td>
+<td style="text-align: right;">0.6492</td>
+<td style="text-align: right;">0.6238</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Czech MCI</td>
+<td style="text-align: right;">-0.0626</td>
+<td style="text-align: right;">0.6492</td>
+<td style="text-align: right;">0.7118</td>
+</tr>
+</tbody>
+</table>
+<p>The current subject-permutation p-value is 0.0026 for the Florida
+agreement gap and 0.00020, at Monte Carlo resolution, for the other
+rows. The repeated use of the same controls in AD and MCI comparisons is
+explicit; these are not independent replications of each other.</p>
+<p>The large Czech gap deserves skepticism as well as attention. It is a
+numerical fact under the implemented mapping, but the patient/control
+storage-layout difference is aligned with diagnosis. An indexing or
+acquisition explanation must be excluded before calling that gap a
+biological loss of organization.</p>
+<h2 id="spatial-controls">6.4 Spatial controls</h2>
+<p><strong>Table 4. External alpha scores under coordinate
+ablations.</strong> Scramble ranges describe 1,000 independent
+subject-wise channel randomizations, not uncertainty intervals for the
+clinical AUC.</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">External comparison</th>
+<th style="text-align: right;">Actual alpha AUC</th>
+<th style="text-align: right;">Scrambled median</th>
+<th style="text-align: left;">Scramble 95% range</th>
+<th style="text-align: right;">Sorted AUC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Florida AD / control</td>
+<td style="text-align: right;">0.8188</td>
+<td style="text-align: right;">0.4948</td>
+<td style="text-align: left;">0.3197–0.6729</td>
+<td style="text-align: right;">0.5240</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Czech AD / control</td>
+<td style="text-align: right;">0.7841</td>
+<td style="text-align: right;">0.5019</td>
+<td style="text-align: left;">0.4114–0.5882</td>
+<td style="text-align: right;">0.4097</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Czech MCI / control</td>
+<td style="text-align: right;">0.9272</td>
+<td style="text-align: right;">0.4972</td>
+<td style="text-align: left;">0.2744–0.7073</td>
+<td style="text-align: right;">0.3950</td>
+</tr>
+</tbody>
+</table>
+<p>A common permutation of subjects and template preserved every score
+to within
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4.44</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>16</mn></mrow></msup></mrow><annotation encoding="application/x-tex">4.44\times10^{-16}</annotation></semantics></math>.
+That exact control passed. Independently scrambled maps produced median
+AUCs near chance. This is evidence of coordinate dependence, not proof
+that values occur randomly in diseased brains.</p>
+<p>The Czech sorted AUCs are below 0.5. They are reported in the fixed
+direction rather than inverted. They must not be described as exactly
+chance or as proof that value distributions contain no information.</p>
+<h2 id="the-seven-mci-cases">6.5 The seven MCI cases</h2>
+<p>The source-template MCI/control AUC was 0.9272, with a conditional
+interval of 0.8151–0.9986. The case mean score was 1.1023 and the
+control mean 0.4552. The corresponding one-sided Mann–Whitney
+calculation was
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7.18</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">7.18\times10^{-6}</annotation></semantics></math>;
+the separately recomputed permutation test reached the stated 2,000-draw
+resolution. The seven individual scores are supplied in Appendix C and
+in the data supplement.</p>
+<p>This establishes separation of the <strong>seven participants labeled
+MCI</strong> from the supplied controls under the implemented
+representation. It does not establish that the same individuals were
+measured before their later AD diagnosis. No conversion outcome or
+biological confirmation of AD etiology was used. MCI is a clinical
+syndrome; its identification is not interchangeable with a diagnosis of
+MCI due to AD [16].</p>
+<p>The MCI mean was higher than the Czech AD mean of 0.9184 under the
+same source template. Thus this result does not provide a monotonic
+healthy-to-MCI-to-AD severity scale. The local MCI AUC of 0.9902 is
+included in the audit CSV but is not emphasized as a clinical estimate.
+Seven cases, shared controls, and the mapping uncertainty make such an
+interpretation untenable.</p>
+<h2 id="failures-and-stress-tests-retained-from-earlier-records">6.6
+Failures and stress tests retained from earlier records</h2>
+<p>Earlier audit files report that common-average rereferencing reduced
+source delta AUC from approximately 0.876 to 0.674 and alpha from
+approximately 0.857 to 0.785. They report lower, but above-chance,
+performance after restricting recordings to a common duration. They also
+report failure of source-trained numerical cutoffs in Florida, including
+delta balanced accuracy of 0.50 when all external records were called
+positive [3].</p>
+<p>Those are <strong>historical stress-test results</strong>, not newly
+rerun endpoints in the present score replay. They are archived and
+marked accordingly. Their proper role is to identify vulnerability and
+direct independent testing, not to add unverified rows to the main
+table. Likewise, earlier age/sex regression p-values do not justify
+stating that demographic confounding has been eliminated.</p>
+<h1 id="what-the-evidence-does-and-does-not-mean">7. What the evidence
+does and does not mean</h1>
+<h2 id="the-finding-that-survives">7.1 The finding that survives</h2>
+<p>The clearest supported statement is: <strong>in the supplied and
+reconstructed feature representations, alpha scalp-map deviation
+contains information associated with the clinical group labels, and part
+of that discrimination depends on electrode correspondence.</strong></p>
+<p>This statement is narrower than “dementia scrambles the brain map.”
+It avoids saying the measurements are random, that alpha is the cause of
+impairment, or that every healthy brain shares a universal pattern. It
+also leaves the source-versus-external preprocessing and mapping
+qualifications attached to the result.</p>
+<p>The source FTD/control result shows that the score is not established
+as AD-specific. No new FTD or Lewy body disease cohort was tested
+externally. No result here identifies Default Mode Network
+disconnection, compensatory frontal circuitry, or posterior neuronal
+loss directly. Those are mechanistic hypotheses that require different
+measurements and designs.</p>
+<h2 id="a-simpler-alternative-signal-to-noise-ratio">7.2 A simpler
+alternative: signal-to-noise ratio</h2>
+<p>Even a correct electrode mapping would not settle the mechanism.
+Suppose the true centered map is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐡</mi><annotation encoding="application/x-tex">\mathbf{h}</annotation></semantics></math>
+and a measured map is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐱</mi><mo>=</mo><mi>a</mi><mi>𝐡</mi><mo>+</mo><mi>𝛆</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>𝛆</mi><mo>⊥</mo><mi>𝐡</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathbf{x}=a\mathbf{h}+\boldsymbol\varepsilon,
+\qquad \boldsymbol\varepsilon\perp\mathbf{h}.
+</annotation></semantics></math></p>
+<p>Then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐱</mi><mo>,</mo><mi>𝐡</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>a</mi><mo stretchy="false" form="postfix">∥</mo><mi>𝐡</mi><msub><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msub></mrow><msqrt><mrow><msup><mi>a</mi><mn>2</mn></msup><mo stretchy="false" form="postfix">∥</mo><mi>𝐡</mi><msubsup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mo stretchy="false" form="postfix">∥</mo><mi>𝛆</mi><msubsup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn><mn>2</mn></msubsup></mrow></msqrt></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\rho(\mathbf{x},\mathbf{h})=
+\frac{a\|\mathbf{h}\|_2}
+{\sqrt{a^2\|\mathbf{h}\|_2^2+\|\boldsymbol\varepsilon\|_2^2}}.
+</annotation></semantics></math></p>
+<p>A lower signal-to-noise ratio reduces the correlation even if the
+underlying spatial shape has not reorganized. A reduction in alpha
+amplitude, a shorter recording, or different residual artifacts can
+therefore raise the deviation score. Matched-noise simulations and
+reliability analyses are needed before interpreting deviation as a
+particular anatomical rearrangement.</p>
+<h2 id="reference-and-preprocessing-are-part-of-the-measurement">7.3
+Reference and preprocessing are part of the measurement</h2>
+<p>EEG voltages are relative measurements. If rereferencing is
+represented by a linear matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>
+and the cross-spectral matrix is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">S(f)</annotation></semantics></math>,
+then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>′</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>R</mi><mi>S</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>R</mi><mi>T</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S&#39;(f)=R S(f)R^T.
+</annotation></semantics></math></p>
+<p>The diagonal power values generally change. Relative power and
+correlation distance do not make the marker reference-invariant. In
+addition, the source 4096-sample window is 8.192 seconds at 500 Hz but
+32 seconds at 128 Hz. Holding a sample count fixed does not hold
+temporal resolution fixed. Capping short windows adds a further
+difference.</p>
+<p>The transferred results therefore test a fixed scoring idea with
+documented dataset adapters, not one unmodified end-to-end acquisition
+and analysis protocol. A manuscript must say that plainly, even when the
+AUC is favorable.</p>
+<h2 id="why-significant-p-values-do-not-finish-the-argument">7.4 Why
+significant p-values do not finish the argument</h2>
+<p>A label-permutation result asks whether the observed association is
+unusual under a specified exchangeability null. A machine, file layout,
+or preprocessing convention correlated with diagnosis can still yield a
+small p-value. Cross-validation also preserves that correlation when
+both train and test folds come from the same acquisition process.</p>
+<p>Independent datasets are useful, but they do not automatically remove
+parallel biases. The Czech mapping assumption is particularly
+consequential. Florida has only 12 controls and short processed records.
+Source and external confidence intervals are conditional. The datasets
+were selected for availability, not sampled as a representative clinical
+deployment population. These limits prevent a claim of definitive
+clinical validation.</p>
+<h1 id="intended-research">8. Intended research</h1>
+<h2
+id="lock-measurement-provenance-before-further-model-development">8.1
+Lock measurement provenance before further model development</h2>
+<p>The Czech peer-reviewed channel sequence now matches the
+reconstruction exactly, resolving the earlier uncertainty about which 19
+anatomical labels the analysis intended. Future work should still obtain
+or preserve export-code/file-format documentation that explicitly links
+those labels to the MATLAB array indices in each storage layout.
+Sampling-rate and device membership should remain attached to each
+subject, and patient/control layouts should be processed through matched
+extraction paths where possible.</p>
+<p>The Florida processed ADFSU release is locally available and is
+included in the reproducibility record, but the original OSF
+subject-level signals should still be reconstructed from their earliest
+available form for a preprocessing-complete replication. The
+short-record and 30-Hz limitations of the Florida source remain real
+protocol differences rather than missing paperwork.</p>
+<h2 id="prodromal-sensitivity-and-prediction">8.2 Prodromal sensitivity
+and prediction</h2>
+<p>A larger MCI cohort should first test the unchanged score without
+searching bands or channels. Its sample size should follow a precision
+or power calculation, not an arbitrary target chosen after a small
+positive study. Controls should be sampled and acquired comparably.</p>
+<p>The clinically harder question is longitudinal: among people with MCI
+at baseline, does the score predict later AD dementia or a
+biomarker-confirmed AD outcome? That needs converters and
+non-converters, a defined follow-up period, competing diagnoses, and a
+reference and threshold fixed before outcomes are examined.
+Cross-sectional MCI/control separation cannot substitute for that test
+[16].</p>
+<h2 id="etiological-specificity">8.3 Etiological specificity</h2>
+<p>FTD already limits an AD-specific interpretation. The next
+comparisons should include other dementias and non-neurodegenerative
+causes of cognitive symptoms, not just healthy volunteers. Lewy body
+disease, vascular conditions, medications, sleepiness, and recording
+artifacts are relevant alternative explanations to examine, not labels
+to infer from this score. A marker of generalized abnormality may still
+be useful, but it answers a different question from identifying AD
+etiology.</p>
+<h2 id="non-stationary-and-rft-benchmarks">8.4 Non-stationary and RFT
+benchmarks</h2>
+<p>Welch averages over time. Transient bursts or changes in local
+spectral shape may therefore be missed. A candidate dynamic method could
+measure the same scalp pattern in successive windows and describe its
+reliability, drift, and recurrence. Non-harmonic or RFT features should
+enter as prespecified additions to, not replacements for, the recorded
+baseline.</p>
+<p>The relevant comparison is incremental held-out performance:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">C</mi></mrow><mo>=</mo><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">C</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">baseline plus candidate</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">C</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">baseline</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\Delta\mathrm{AUC}=
+\mathrm{AUC}(\text{baseline plus candidate})-
+\mathrm{AUC}(\text{baseline}).
+</annotation></semantics></math></p>
+<p>Both arms must use the same subjects and folds, with all tuning
+confined to training data. Paired uncertainty estimates should reflect
+the shared test subjects. A prettier transform image, lower
+reconstruction error, or higher in-sample AUC is not diagnostic
+improvement. New methods should also beat simple Fourier, wavelet, and
+matched-noise controls rather than only a weak implementation of the
+baseline.</p>
+<h2 id="cross-regional-coupling">8.5 Cross-regional coupling</h2>
+<p>Power maps omit phase relationships. For a cross-spectrum
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><annotation encoding="application/x-tex">S_{ij}</annotation></semantics></math>,
+coherency is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><msub><mi>S</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><msqrt><mrow><msub><mi>S</mi><mrow><mi>i</mi><mi>i</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>S</mi><mrow><mi>j</mi><mi>j</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msqrt></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+C_{ij}(f)=\frac{S_{ij}(f)}{\sqrt{S_{ii}(f)S_{jj}(f)}}.
+</annotation></semantics></math></p>
+<p>Its imaginary part and phase-lag measures can reduce particular
+zero-lag mixing effects [17–19]. Candidate posterior/frontal electrode
+sets can be specified in advance, but scalp electrodes should not be
+equated with identified cortical hubs. Ordinary imaginary coherence,
+PLI, and wPLI are not demonstrations of directed causal communication.
+Connectivity would be a new benchmark with its own volume-conduction,
+source-mixing, and sample-size controls.</p>
+<h2 id="calibration-and-practical-use">8.6 Calibration and practical
+use</h2>
+<p>External ranking is only one component of usefulness. A deployable
+test needs a threshold, sensitivity and specificity, uncertainty for
+individual decisions, and stability across devices, references, and
+populations. A common reference learned from a representative training
+cohort may help, but fitting a new site’s controls is adaptation, not
+zero-shot deployment. That distinction must remain visible in every
+performance table.</p>
+<h1 id="reproducibility-authorship-and-data-availability">9.
+Reproducibility, authorship, and data availability</h1>
+<p>The supplement contains source and external feature tables, fresh
+Czech reconstruction including MCI, subject-level scores, permutation
+distributions, exclusions, input manifests, code, an executed notebook,
+and the research notes supporting the historical account. CSVs are
+attached as analysis data, not as substitutes for the original EEG. The
+multi-gigabyte raw recordings are not duplicated in the supplement;
+their authoritative dataset identifiers and reconstruction commands are
+supplied.</p>
+<p>The source raw replay, Czech reconstruction, score calculations,
+subject permutations, and coordinate checks were executed during
+preparation of this manuscript. Their outputs are written by the
+included scripts. Earlier narrative reports are kept separately under
+<code>archive/</code> and are not presented as new independent evidence.
+The source control template can be regenerated from the attached
+features rather than trusted as a rounded constant copied from a
+message.</p>
+<p>The author’s research direction and interpretation are presented as
+an account of his project. AI assistance was used for code development,
+drafting, and audit preparation. That assistance does not constitute
+independent peer review or clinical adjudication. Luis M. Minier must
+approve the final manuscript, confirm funding and competing-interest
+disclosures, and verify source permissions and any applicable
+secondary-analysis requirements before submission. No new participants
+were recruited for this analysis.</p>
+<h1 id="conclusion">10. Conclusion</h1>
+<p>The path from zeta-zero experiments to EEG was useful because it
+exposed the same methodological danger in two different settings: a
+compelling feature-space pattern can be mistaken for a property of the
+underlying system. The zeta work did not prove a connection to
+neurodegeneration. The original high-dimensional EEG panel did not
+establish a reliable marker. The pooled rank contrast did not establish
+AD dimensionality inflation.</p>
+<p>A simpler alpha-template score produced reproducible numerical
+discrimination in the available tables and reconstructions, including
+source-template transfer and a small MCI comparison. Those results
+justify independent checking of a spatial EEG hypothesis. They do not
+justify a claim that Alzheimer’s pathology, future conversion, or a
+universal clinical cutoff has been identified. In particular, the Czech
+channel mapping must be resolved before its unusually large separation
+is treated as confirmed physiology.</p>
+<p>The work’s present value is an explicit question, a measurable
+baseline, and a record of tests that can fail. The next advance would be
+a verified acquisition and mapping pipeline followed by prospective,
+independently executed validation, not another favorable number added to
+the same research narrative.</p>
+<h1
+id="appendix-a.-mathematical-checks-that-prevent-overinterpretation">Appendix
+A. Mathematical checks that prevent overinterpretation</h1>
+<h2
+id="a.1-a-complete-unitary-basis-does-not-change-the-singular-spectrum">A.1
+A complete unitary basis does not change the singular spectrum</h2>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Q</mi><mi>H</mi></msup><mi>Q</mi><mo>=</mo><mi>Q</mi><msup><mi>Q</mi><mi>H</mi></msup><mo>=</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">Q^{H}Q=QQ^{H}=I</annotation></semantics></math>,
+then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mi>Q</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mi>Q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>H</mi></msup><mo>=</mo><mi>X</mi><mi>Q</mi><msup><mi>Q</mi><mi>H</mi></msup><msup><mi>X</mi><mi>H</mi></msup><mo>=</mo><mi>X</mi><msup><mi>X</mi><mi>H</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(XQ)(XQ)^{H}=XQQ^{H}X^{H}=XX^{H}.
+</annotation></semantics></math></p>
+<p>Therefore
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">XQ</annotation></semantics></math>
+have the same singular values and covariance-spectrum effective
+dimensions. A full-rank phase matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+can be orthogonalized through
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mi>V</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>V</mi><mi>H</mi></msup><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">Q=V(V^{H}V)^{-1/2}</annotation></semantics></math>,
+but orthogonality alone does not create additional discriminative
+information. Truncation, nonlinear feature construction, coordinate
+weighting, and noise treatment can change the subsequent geometry. Those
+changes must be identified rather than credited vaguely to a special
+constant.</p>
+<h2
+id="a.2-concentration-changes-with-window-length-even-under-a-simple-null">A.2
+Concentration changes with window length even under a simple null</h2>
+<p>For sample energies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mi>n</mi></msub><mo>=</mo><msubsup><mi>x</mi><mi>n</mi><mn>2</mn></msubsup><mi>/</mi><msub><mo>∑</mo><mi>j</mi></msub><msubsup><mi>x</mi><mi>j</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">e_n=x_n^2/\sum_jx_j^2</annotation></semantics></math>,
+the inverse participation ratio is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>n</mi></msub><msubsup><mi>e</mi><mi>n</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\sum_ne_n^2</annotation></semantics></math>.
+Under a stable independent-sample model with second and fourth moments
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\mu_2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mn>4</mn></msub><annotation encoding="application/x-tex">\mu_4</annotation></semantics></math>,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">R</mi></mrow><mo>≈</mo><mfrac><msub><mi>μ</mi><mn>4</mn></msub><mrow><mi>N</mi><msubsup><mi>μ</mi><mn>2</mn><mn>2</mn></msubsup></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{IPR}\approx\frac{\mu_4}{N\mu_2^2}.
+</annotation></semantics></math></p>
+<p>Similarly,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>x</mi><msub><mo stretchy="false" form="postfix">∥</mo><mn>4</mn></msub><mi>/</mi><mo stretchy="false" form="postfix">∥</mo><mi>x</mi><msub><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\|x\|_4/\|x\|_2</annotation></semantics></math>
+scales approximately as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>N</mi><mrow><mo>−</mo><mn>1</mn><mi>/</mi><mn>4</mn></mrow></msup><annotation encoding="application/x-tex">N^{-1/4}</annotation></semantics></math>
+for fixed moments. A multiscale slope can therefore arise from sample
+counting, not a disease-specific law. Signed excess kurtosis creates a
+separate problem: taking its logarithm is undefined for non-positive
+values. Conditional omission can produce different available feature
+sets across people. These details help explain why the earlier
+concentration screen required stronger null controls.</p>
+<h2 id="a.3-sorting-forces-nonnegative-centered-association">A.3 Sorting
+forces nonnegative centered association</h2>
+<p>For two sequences sorted in the same order,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>∑</mo><mi>i</mi></munder><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>a</mi><mi>i</mi></msub><mo>−</mo><mover><mi>a</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>b</mi><mi>i</mi></msub><mo>−</mo><mover><mi>b</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>n</mi></mrow></mfrac><munder><mo>∑</mo><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></munder><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>a</mi><mi>i</mi></msub><mo>−</mo><msub><mi>a</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>b</mi><mi>i</mi></msub><mo>−</mo><msub><mi>b</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\sum_i(a_i-\bar a)(b_i-\bar b)
+=\frac{1}{2n}\sum_{i,j}(a_i-a_j)(b_i-b_j)\geq0.
+</annotation></semantics></math></p>
+<p>Each pairwise product on the right is nonnegative. High correlations
+between sorted scalp vectors therefore need a careful null
+interpretation. The useful question is whether the <em>group
+comparison</em> changes under a specified ablation, not whether sorted
+subjects look impressively alike.</p>
+<h2
+id="a.4-auc-and-effect-size-are-related-not-separate-confirmations">A.4
+AUC and effect size are related, not separate confirmations</h2>
+<p>For a fixed score direction, rank-biserial effect size is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">C</mi></mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2\mathrm{AUC}-1</annotation></semantics></math>.
+Reporting both is useful, but they are not independent pieces of
+evidence. Likewise, many subject-pair comparisons in an AUC do not
+increase the number of independent participants.</p>
+<h1 id="appendix-b.-exact-channel-and-preprocessing-record">Appendix B.
+Exact channel and preprocessing record</h1>
+<p><strong>Frozen output order:</strong> Fp1, Fp2, F3, F4, C3, C4, P3,
+P4, O1, O2, F7, F8, T3, T4, T5, T6, Fz, Cz, Pz.</p>
+<p><strong>Published Czech analysis order:</strong> Fp1, Fp2, F7, Fz,
+F3, F4, F8, T3, C3, Cz, C4, T4, T5, P3, Pz, P4, T6, O1, O2 [10].</p>
+<p>This published sequence exactly matches the reconstruction input
+order. The remaining qualification is narrower: the article reports the
+channel sequence used for analysis but does not separately document the
+serialization indices of every MATLAB array layout. The complete
+exclusion list and storage-layout field accompany each reconstructed
+Czech record.</p>
+<p>OpenNeuro processing uses the native 500-Hz derivative signals,
+stored A1/A2 reference, full available duration, and 4096/2048 Welch
+parameters. Czech processing uses native-rate metadata from the archive
+readme, polyphase downsampling where needed, within-fragment window
+caps, duration-weighted powers, and then relative-power normalization.
+Florida features were previously derived from short processed data. No
+claim of identical raw preprocessing is made across these three
+inputs.</p>
+<h1 id="appendix-c.-all-seven-mci-source-template-scores">Appendix C.
+All seven MCI source-template scores</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Participant</th>
+<th style="text-align: right;">Original sampling rate</th>
+<th style="text-align: right;">Alpha deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MCI1</td>
+<td style="text-align: right;">256 Hz</td>
+<td style="text-align: right;">1.044047</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MCI2</td>
+<td style="text-align: right;">256 Hz</td>
+<td style="text-align: right;">1.057331</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MCI3</td>
+<td style="text-align: right;">256 Hz</td>
+<td style="text-align: right;">0.856473</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MCI4</td>
+<td style="text-align: right;">256 Hz</td>
+<td style="text-align: right;">0.512807</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MCI5</td>
+<td style="text-align: right;">128 Hz</td>
+<td style="text-align: right;">1.248154</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MCI6</td>
+<td style="text-align: right;">128 Hz</td>
+<td style="text-align: right;">1.307084</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MCI7</td>
+<td style="text-align: right;">128 Hz</td>
+<td style="text-align: right;">1.690212</td>
+</tr>
+</tbody>
+</table>
+<p>The AUC corresponds to 662 correctly ordered MCI/control pairs out of
+714. Those pairs arise from seven cases and 102 controls, not 714
+independent observations. The archive’s cognitive subscore total is out
+of 100 and must not be mislabeled as the source cohort’s MMSE.</p>
+<h1 id="appendix-d.-how-to-reproduce-the-audit">Appendix D. How to
+reproduce the audit</h1>
+<p>Extract the supplement. In its root directory, install the recorded
+dependencies and run:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-r</span> requirements.txt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> code/test_invariants.py</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> code/audit_metrics.py <span class="at">--root</span> .</span></code></pre></div>
+<p>The default audit uses 2,000 AUC label permutations, 5,000
+fixed-score bootstrap resamples, 5,000 group-agreement permutations,
+1,000 independent coordinate scrambles, and 100 split seeds. It writes
+results to <code>results/</code>. The executed notebook displays the
+same computations and the provenance limitations.</p>
+<p>For optional raw reconstruction, provide the original datasets
+locally:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> code/rebuild_source.py <span class="at">--raw-root</span> /path/to/eeg <span class="at">--root</span> .</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> code/rebuild_czech.py <span class="at">--zip</span> /path/to/dataset.zip <span class="at">--root</span> .</span></code></pre></div>
+<p>The source raw folder must contain the EEG payloads, not Git-annex
+pointers. Metadata are read from the supplement’s source table. Raw
+reruns retain the documented Czech mapping assumption; they do not
+resolve it. File checksums are listed in <code>SHA256SUMS.txt</code>.
+Source raw hashes and the Czech archive hash are listed separately under
+<code>provenance/</code>.</p>
+<h1 id="references">References</h1>
+<p>[1] Apostol TM. Zeta and Related Functions, §25.10, Zeros. In:
+<em>NIST Digital Library of Mathematical Functions</em>.
+https://dlmf.nist.gov/25.10. Accessed 11 September 2026.</p>
+<p>[2] Minier LM. <em>Riemann and zeta research: consolidated evidence
+record</em>. Research notes consolidated 7 September 2026. Unpublished
+project record; supplied with this manuscript under
+<code>provenance/RIEMANN_RESEARCH_CONSOLIDATED.md</code>. Historical
+results in that record are not independently certified by this
+paper.</p>
+<p>[3] Minier LM. <em>EEG research outputs, evidence audits, and
+notebook records</em>. September 2026. Unpublished project materials
+supplied in the supplement. Earlier narrative reports are retained under
+<code>archive/</code>; the present executable outputs are under
+<code>results/</code>.</p>
+<p>[4] OpenAI. <em>On the Navier–Stokes Millennium Prize Problem</em>. 8
+September 2026. https://openai.com/index/navier-stokes-solution/. Cited
+as research motivation, not as evidence about EEG.</p>
+<p>[5] Miltiadous A, Tzimourta KD, Afrantou T, et al. A Dataset of Scalp
+EEG Recordings of Alzheimer’s Disease, Frontotemporal Dementia and
+Healthy Subjects from Routine EEG. <em>Data</em>. 2023;8(6):95.
+https://doi.org/10.3390/data8060095.</p>
+<p>[6] OpenNeuro. <em>ds004504</em>, version 1.0.9. Dataset.
+https://doi.org/10.18112/openneuro.ds004504.v1.0.9. Public mirror:
+https://github.com/OpenNeuroDatasets/ds004504. Dataset metadata identify
+CC0 distribution.</p>
+<p>[7] Vicchietti ML, Ramos FM, Betting LE, Campanharo ASLO.
+Computational methods of EEG signals analysis for Alzheimer’s disease
+classification. <em>Scientific Reports</em>. 2023;13:8184.
+https://doi.org/10.1038/s41598-023-32664-8.</p>
+<p>[8] Florida State University / OSF EEG data associated with
+Vicchietti et al. <em>OSF project 2v5md</em>. https://osf.io/2v5md/.
+Eyes-closed portion used through the derived representation described in
+the text.</p>
+<p>[9] DL4mHealth. <em>LEAD: An EEG Foundation Model for Alzheimer’s
+Disease Detection</em>. Code and processed-data release.
+https://github.com/DL4mHealth/LEAD. ADFSU preprocessing notebook,
+recorded commit <code>ec35aadb1bc068fcacdcd8d036964514ca2a708f</code>;
+path
+<code>data_preprocessing/ADFSU/ADFSU_preprocessing.ipynb</code>.</p>
+<p>[10] Cejnek M, Vysata O, Valis M, Bukovsky I. Novelty detection-based
+approach for Alzheimer’s disease and mild cognitive impairment diagnosis
+from EEG. <em>Medical &amp; Biological Engineering &amp; Computing</em>.
+2021;59:2287–2296. https://doi.org/10.1007/s11517-021-02427-6.</p>
+<p>[11] Čejnek M. <em>dataset.zip</em>. Figshare dataset. 2017.
+https://doi.org/10.6084/m9.figshare.5450293.v1. Uploaded archive and its
+internal readme were used for the present reconstruction.</p>
+<p>[12] Welch PD. The use of fast Fourier transform for the estimation
+of power spectra: A method based on time averaging over short, modified
+periodograms. <em>IEEE Transactions on Audio and Electroacoustics</em>.
+1967;15(2):70–73. https://doi.org/10.1109/TAU.1967.1161901.</p>
+<p>[13] Varoquaux G. Cross-validation failure: Small sample sizes lead
+to large error bars. <em>NeuroImage</em>. 2018;180:68–77.
+https://doi.org/10.1016/j.neuroimage.2017.06.061.</p>
+<p>[14] Phipson B, Smyth GK. Permutation P-values should never be zero:
+calculating exact P-values when permutations are randomly drawn.
+<em>Statistical Applications in Genetics and Molecular Biology</em>.
+2010;9:Article 39. https://doi.org/10.2202/1544-6115.1585.</p>
+<p>[15] Benjamini Y, Hochberg Y. Controlling the false discovery rate: a
+practical and powerful approach to multiple testing. <em>Journal of the
+Royal Statistical Society, Series B</em>. 1995;57(1):289–300.
+https://doi.org/10.1111/j.2517-6161.1995.tb02031.x.</p>
+<p>[16] Albert MS, DeKosky ST, Dickson D, et al. The diagnosis of mild
+cognitive impairment due to Alzheimer’s disease: recommendations from
+the National Institute on Aging–Alzheimer’s Association workgroups on
+diagnostic guidelines for Alzheimer’s disease. <em>Alzheimer’s &amp;
+Dementia</em>. 2011;7(3):270–279.
+https://doi.org/10.1016/j.jalz.2011.03.008.</p>
+<p>[17] Nolte G, Bai O, Wheaton L, Mari Z, Vorbach S, Hallett M.
+Identifying true brain interaction from EEG data using the imaginary
+part of coherency. <em>Clinical Neurophysiology</em>.
+2004;115(10):2292–2307.
+https://doi.org/10.1016/j.clinph.2004.04.029.</p>
+<p>[18] Stam CJ, Nolte G, Daffertshofer A. Phase lag index: assessment
+of functional connectivity from multi channel EEG and MEG with
+diminished bias from common sources. <em>Human Brain Mapping</em>.
+2007;28:1178–1193. https://doi.org/10.1002/hbm.20346.</p>
+<p>[19] Vinck M, Oostenveld R, van Wingerden M, Battaglia F, Pennartz
+CMA. An improved index of phase-synchronization for electrophysiological
+data in the presence of volume-conduction, noise and sample-size bias.
+<em>NeuroImage</em>. 2011;55(4):1548–1565.
+https://doi.org/10.1016/j.neuroimage.2011.01.055.</p>
+<p>[20] Additional dataset-requested attribution: Miltiadous et al.,
+<em>DICE-Net</em>, DOI https://doi.org/10.1109/ACCESS.2023.3294618;
+AHEPA dataset scoping/benchmark record, DOI
+https://doi.org/10.1007/s11571-026-10464-w. These identifiers are
+supplied by the ds004504 metadata; neither is an independent validation
+of the present score.</p>
+</body>
+</html>

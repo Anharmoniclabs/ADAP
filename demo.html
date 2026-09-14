@@ -1,0 +1,36 @@
+<div id="adap-preview">
+<style>
+#adap-preview{background:#0f172a;color:#f8fafc;font-family:system-ui;padding:16px}#adap-preview header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid #334155;padding-bottom:12px}#adap-preview h2,#adap-preview h3{margin:0 0 12px;color:#38bdf8}#adap-preview .layout{display:grid;grid-template-columns:230px 1fr 1fr;gap:14px;margin-top:16px}#adap-preview .panel{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px;min-width:0}#adap-preview label{display:block;margin:16px 0 6px}#adap-preview select,#adap-preview input{width:100%;box-sizing:border-box}#adap-preview select{padding:8px;background:#0f172a;color:#f8fafc;border:1px solid #475569;border-radius:4px}#adap-preview .muted{color:#94a3b8}#adap-preview .plot{height:255px}#adap-preview #adap-traces{height:565px}@media(max-width:780px){#adap-preview .layout{grid-template-columns:1fr}#adap-preview #adap-traces{height:480px}}
+</style>
+<header><div><h2>ADAP Visualizer</h2><span class="muted">Synthetic dashboard preview · September 14, 2026</span></div><span id="adap-badge">AD</span></header>
+<div class="layout"><section class="panel"><h3>Parameters</h3>
+<label for="adap-cohort">Dataset / Cohort</label><select id="adap-cohort"><option value="AD">AD Patients (OpenNeuro)</option><option value="LEMON_EC">LEMON Healthy (Eyes Closed)</option><option value="LEMON_EO">LEMON Healthy (Eyes Open)</option><option value="CAP_N2">CAP Sleep (Stage 2)</option></select>
+<label for="adap-band">Band Fitting Mode</label><select id="adap-band"><option value="IAF">Individualized Alpha Frequency</option><option value="FIXED">Fixed Canonical Band (8–12 Hz)</option></select>
+<label for="adap-offset">Individual Peak Offset (Hz)</label><input id="adap-offset" type="range" min="-1.5" max="1.5" step="0.1" value="0"><output id="adap-value">0.0 Hz</output>
+</section><section class="panel"><h3>19-Channel 10–20 Waveforms</h3><div id="adap-traces" aria-label="Synthetic EEG waveforms"></div></section>
+<section class="panel"><h3>Posterior Spectral Density (O1 / O2)</h3><div id="adap-psd" class="plot"></div><h3>Scalp Alpha Power Topology</h3><div id="adap-topo" class="plot"></div><div id="adap-error" role="status" aria-live="polite"></div></section></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.27.0/plotly.min.js"></script>
+<script>
+(function(){
+const root=document.getElementById('adap-preview');
+const channels=['Fp1','Fp2','F7','F3','Fz','F4','F8','T3','C3','Cz','C4','T4','T5','P3','Pz','P4','T6','O1','O2'];
+const coords=[[-.3,.8],[.3,.8],[-.7,.5],[-.35,.45],[0,.45],[.35,.45],[.7,.5],[-.8,0],[-.4,0],[0,0],[.4,0],[.8,0],[-.7,-.5],[-.35,-.45],[0,-.45],[.35,-.45],[.7,-.5],[-.3,-.8],[.3,-.8]];
+const post=ch=>['O1','O2','P3','P4','Pz'].includes(ch);
+const base={margin:{t:10,b:45,l:48,r:10},showlegend:false,paper_bgcolor:'transparent',plot_bgcolor:'transparent',font:{color:'#94a3b8'},xaxis:{gridcolor:'#334155'},yaxis:{gridcolor:'#334155'}};
+const config={responsive:true,displayModeBar:false};
+function render(){
+if(typeof Plotly==='undefined'){root.querySelector('#adap-error').textContent='Chart library could not load.';return;}
+const cohort=root.querySelector('#adap-cohort').value,isAD=cohort==='AD',mode=root.querySelector('#adap-band').value,offset=Number(root.querySelector('#adap-offset').value);
+root.querySelector('#adap-badge').textContent='Cohort: '+cohort;root.querySelector('#adap-value').textContent=offset.toFixed(1)+' Hz';
+const time=Array.from({length:300},(_,i)=>i*.01),peak=(isAD?9.2:10.4)+offset;
+const traces=channels.map((ch,idx)=>{const amp=isAD&&post(ch)?.35:cohort==='LEMON_EO'?.4:1.2;return{x:time,y:time.map(t=>idx*3+Math.sin(2*Math.PI*peak*t)*amp+(Math.random()-.5)*.3),mode:'lines',name:ch,line:{width:1}};});
+Plotly.newPlot('adap-traces',traces,{...base,xaxis:{...base.xaxis,title:'Time (s)'},yaxis:{...base.yaxis,tickmode:'array',tickvals:channels.map((_,i)=>i*3),ticktext:channels}},config);
+const freqs=Array.from({length:100},(_,i)=>1+i*.19),psd=freqs.map(f=>1/(f+.5)+Math.exp(-.5*Math.pow((f-peak)/1.1,2))*(isAD?.8:3.8));
+Plotly.newPlot('adap-psd',[{x:freqs,y:psd,mode:'lines',fill:'tozeroy',line:{color:'#38bdf8'}}],{...base,xaxis:{...base.xaxis,title:'Frequency (Hz)'},yaxis:{...base.yaxis,title:'Power'},shapes:[{type:'rect',x0:mode==='FIXED'?8:peak-2,x1:mode==='FIXED'?12:peak+2,y0:0,y1:Math.max(...psd),fillcolor:'rgba(239,68,68,.25)',line:{width:0}}]},config);
+const x=coords.map(p=>p[0]),y=coords.map(p=>p[1]),z=channels.map(ch=>(post(ch)?isAD?1.2:4.5:isAD?.8:1.5)+Math.random()*.2);
+try{Promise.resolve(Plotly.newPlot('adap-topo',[{type:'contour',x,y,z,colorscale:'Viridis',showscale:false,contours:{coloring:'heatmap'}},{type:'scatter',x,y,mode:'text+markers',text:channels,textposition:'top center',marker:{color:'#ffffff',size:6}}],{...base,margin:{t:15,b:15,l:20,r:20},xaxis:{visible:false},yaxis:{visible:false}},config)).catch(e=>{root.querySelector('#adap-error').textContent=e.message;});}catch(e){root.querySelector('#adap-error').textContent=e.message;}
+}
+root.querySelector('#adap-cohort').addEventListener('change',render);root.querySelector('#adap-band').addEventListener('change',render);root.querySelector('#adap-offset').addEventListener('input',render);render();
+})();
+</script>
