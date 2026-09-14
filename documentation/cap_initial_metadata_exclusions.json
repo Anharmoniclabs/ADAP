@@ -1,0 +1,82 @@
+[
+  {
+    "subject": "n1",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['ROC-LOC', 'LOC-ROC', 'F2-F4', 'F4-C4', 'C4-P4', 'P4-O2', 'F1-F3', 'F3-C3', 'C3-P3', 'P3-O1', 'C4-A1', 'EMG1-EMG2', 'ECG1-ECG2', 'TERMISTORE', 'TORACE', 'ADDOME', 'Dx1-DX2', 'SX1-SX2', 'Posizione', 'HR', 'SpO2']"
+  },
+  {
+    "subject": "n2",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['Fp2-F4', 'F4-C4', 'C4-P4', 'P4-O2', 'C4-A1', 'ROC-LOC', 'EMG1-EMG2', 'ECG1-ECG2', 'DX1-DX2', 'SX1-SX2', 'SAO2', 'HR', 'PLETH', 'STAT', 'MIC']"
+  },
+  {
+    "subject": "n3",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['Fp2-F4', 'F4-C4', 'C4-P4', 'P4-O2', 'F8-T4', 'T4-T6', 'FP1-F3', 'F3-C3', 'C3-P3', 'P3-O1', 'F7-T3', 'T3-T5', 'C4-A1', 'ROC-LOC', 'EMG1-EMG2', 'ECG1-ECG2', 'DX1-DX2', 'SX1-SX2', 'SAO2', 'HR', 'PLETH', 'STAT', 'MIC']"
+  },
+  {
+    "subject": "n4",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['EOG dx', 'Fp2-F4', 'F4-C4', 'C4-P4', 'P4-O2', 'C4-A1', 'milo', 'EOG sin', 'tib dx', 'tib sin', 'cannula', 'toracico', 'ekg', 'deltoide', 'Heart Rate Varia', 'Flattening', 'Flow']"
+  },
+  {
+    "subject": "n5",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['Fp2-F4', 'F4-C4', 'C4-P4', 'P4-O2', 'F8-T4', 'T4-T6', 'FP1-F3', 'F3-C3', 'C3-P3', 'P3-O1', 'F7-T3', 'T3-T5', 'C4-A1', 'ROC-LOC', 'EMG1-EMG2', 'ECG1-ECG2', 'DX1-DX2', 'SX1-SX2', 'SAO2', 'HR', 'PLETH', 'STAT', 'MIC']"
+  },
+  {
+    "subject": "n6",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['LOC-A1', 'ROC-A2', 'EMG-EMG', 'C3-A2', 'O2-A1', 'ECG', 'TAG', 'THE']"
+  },
+  {
+    "subject": "n7",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['LOC-A1', 'ROC-A2', 'EMG-EMG', 'C3-A2', 'O2-A1', 'ECG', 'TAG', 'THE']"
+  },
+  {
+    "subject": "n8",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['C3-A2', 'C4-P4', 'EKG', 'EOG-L', 'EOG-R', 'F4-C4', 'Fp2-F4', 'P4-O2', 'Tib dx', 'Tib sx', 'abdomen', 'flow', 'milo', 'thorax']"
+  },
+  {
+    "subject": "n9",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['LOC-A1', 'ROC-A2', 'EMG', 'C3-A2', 'O2-A1', 'ECG', 'TAG', 'THE']"
+  },
+  {
+    "subject": "n10",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['Fp2-F4', 'F4-C4', 'C4-P4', 'P4-O2', 'F8-T4', 'T4-T6', 'FP1-F3', 'F3-C3', 'C3-P3', 'P3-O1', 'F7-T3', 'T3-T5', 'C4-A1', 'ROC-LOC', 'EMG1-EMG2', 'ECG1-ECG2', 'DX1-DX2', 'SX1-SX2']"
+  },
+  {
+    "subject": "n11",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['Fp2-F4', 'F4-C4', 'C4-P4', 'P4-O2', 'F8-T4', 'T4-T6', 'FP1-F3', 'F3-C3', 'C3-P3', 'P3-O1', 'F7-T3', 'T3-T5', 'C4-A1', 'ROC-LOC', 'EMG1-EMG2', 'ECG1-ECG2', 'DX1-DX2', 'SX1-SX2', 'SAO2', 'HR', 'PLETH', 'STAT']"
+  },
+  {
+    "subject": "n12",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['LOC / A2', 'ROC / A1', 'CHIN', 'CHIN', 'C3-A2', 'C4-A1', 'O1-A2', 'O2-A1', 'EKG']"
+  },
+  {
+    "subject": "n13",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['LOC', 'ROC', 'CHIN1', 'CHIN2', 'F3A2', 'F4A1', 'C3A2', 'C4A1', 'O1A2', 'O2A1', 'ECG']"
+  },
+  {
+    "subject": "n14",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['LOC', 'ROC', 'CHIN1', 'CHIN2', 'F3A2', 'F4A1', 'C3A2', 'C4A1', 'O1A2', 'O2A1', 'ECG']"
+  },
+  {
+    "subject": "n15",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['EOG-L', 'EOG-R', 'CHIN1', 'CHIN2', 'F3A2', 'F4A1', 'C3A2', 'C4A1', 'O1A2', 'O2A1', 'EKG']"
+  },
+  {
+    "subject": "n16",
+    "status": "excluded",
+    "reason": "No matching frontal/occipital reference pair: ['Fp2-F4', 'F4-C4', 'C4-P4', 'P4-O2', 'C4-A1']"
+  }
+]
