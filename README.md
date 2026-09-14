@@ -1,46 +1,38 @@
-# ADAP — ad-alpha-parameterization
+# Minier EEG: spectral and healthy-state controls
 
-Reproducible research materials for the Minier EEG alpha-pattern analysis and its control experiments.
+Run in Python 3.12 after installing `requirements-lock.txt`:
 
-## Current result
-
-The source-cohort posterior alpha finding survives the tested individualized-frequency adjustment across the first, middle, and last one-minute source periods. The frozen spatial score is also sensitive to ordinary physiological state changes: in older healthy LEMON participants it increased with eyes open in 30/34 paired participants (Holm-corrected p ≈ 0.0008), and CAP stage-2 sleep increased theta/alpha in 11/11 eligible participants (Holm-corrected p ≈ 0.004). These controls establish state sensitivity; they do not establish Alzheimer specificity, cholinergic damage, synaptic loss, or impaired AD alpha reactivity.
-
-Start with:
-
-- [`EEG_Control_Runs/FINDINGS.md`](EEG_Control_Runs/FINDINGS.md)
-- [`EEG_Control_Runs/MATH.md`](EEG_Control_Runs/MATH.md)
-- [`EEG_Control_Runs/LIMITATIONS_PARAGRAPH.md`](EEG_Control_Runs/LIMITATIONS_PARAGRAPH.md)
-- [`DATA_AVAILABILITY.md`](DATA_AVAILABILITY.md)
-
-## Experiments
-
-| Directory | Purpose |
-| --- | --- |
-| `EEG_Control_Runs/` | Latest source-window, individualized-frequency, healthy eye-opening, sleep-stage, and limited ECG sensitivity analyses |
-| `EEG_Factor_Tests/` | Original alpha-pattern factor analysis and external Florida comparison |
-| `EEG_Geometry_Test/` | Electrode mapping and spatial-geometry sensitivity analysis |
-
-## Reproduce the latest analyses
-
-Use Python 3.12 and the pinned environment in `EEG_Control_Runs/requirements-lock.txt`.
-
-```bash
-cd EEG_Control_Runs
-python -m pip install -r requirements-lock.txt
+```
 python validate_spectral_fit.py
 python spectral_controls.py
 python individual_peak_controls.py
 python state_controls.py
 python make_figures.py
-python build_report.py
-python verify_run.py
 ```
 
-The repository versions the analysis code, frozen decisions/amendments, subject-level numerical outputs, provenance, checksums, and vector figures needed to audit the work. Large waveform caches and full third-party source recordings are not treated as ordinary Git source files; acquisition/reconstruction instructions and hashes are provided in `DATA_AVAILABILITY.md` and the experiment manifests.
+The included waveform extracts allow offline analysis after dependency installation. Download scripts are acquisition/provenance tools and are not required to reproduce the statistical results from the included inputs. `spectral_controls.py --extract /path/to/full/OpenNeuro/derivatives` rebuilds the source60 snippets if they are absent. Original full-length source recordings are in the earlier full data package.
 
-## Scientific scope
+Read FINDINGS.md for the outcome and limitations, PLAN.json and the separately recorded metadata/ECG amendments for choices, MATH.md for formulas, and results/ for all subject-level observations and tests. This is research analysis, not a calibrated clinical diagnostic device.
 
-This is retrospective research analysis, not a validated clinical diagnostic device. The AD recordings contain eyes-closed data only. Healthy eye-opening and sleep-stage datasets are physiological sensitivity controls, not matched AD controls. The analyses do not measure amyloid, tau, cholinergic integrity, synaptic loss, or causal mechanism.
+## Inputs and exclusions
 
-A directly relevant EEG/MRI precedent is Schumacher et al. (2020), DOI: 10.1186/s13195-020-00613-6. That literature supports a biological hypothesis; it does not convert the present observations into a mechanistic measurement.
+- OpenNeuro ds004504 v1.0.9: all88 source derivative recordings, first8seconds plus first/middle/last60second snippets. AD36 vs control29 is primary; AD36 vsFTD23 is the disease-specificity comparison. Full source hashes and extraction indices are included.
+- Florida OSF2v5md original EEG_data.zip revision1: AD80/control12, all eight-second eyes-closed recordings, all19 named channels. No longer Florida recordings are created or assumed.
+- LEMON: all74 older entries in the published participant table are considered. Include only available paired preprocessed EC/EO files with all19 required channels and enough boundary-free windows. The alias mapping is T3/T7,T4/T8,T5/P7,T6/P8. Missing electrodes are never interpolated. Actual inclusion/exclusion receipts are included. Analyzed data are the first60seconds of each concatenated condition, not a continuous alternation experiment recreated from raw markers.
+- CAP: all16 healthy IDs are considered. Up to10 first complete30second epochs per W/S1/S2 state anywhere in the recording, following the documented metadata-driven amendment; the original first30minute pilot often preceded the scored data. Each state requires3epochs for paired inference. Use a recorded same-reference frontal/occipital pair, or the explicitly documented exact bipolar-chain identities. Missing signals are never inferred from scalp coordinates. Sleep states are externally scored, not inferred using our alpha score.
+
+No new Alzheimer's test cohort is introduced by LEMON or CAP; these are healthy-state sensitivity controls. Recording setups differ, so absolute levels across datasets are not treated as directly comparable.
+
+## Data sources and methods
+
+- Source documentation: https://github.com/OpenNeuroDatasets/ds004504
+- Source release: https://openneuro.org/datasets/ds004504/versions/1.0.9
+- Florida: https://osf.io/2v5md/
+- LEMON portal and terms: https://fcon_1000.projects.nitrc.org/indi/retro/MPI_LEMON.html
+- LEMON EEG acquisition instructions and original direct download addresses are in documentation/EEG_Info and the saved S3 listings. LEMON is distributed under PDDL according to the portal.
+- CAP: https://physionet.org/content/capslpdb/1.0.0/ . Open Data Commons Attribution License v1.0. Cite Terzano et al., Atlas, rules, and recording techniques for the scoring of cyclic alternating pattern (CAP) in human sleep, Sleep Medicine2(6):537–553,2001, and the PhysioNet resource.
+- Spectral model: Donoghue et al.2020, https://doi.org/10.1038/s41593-020-00744-x . Pinned FOOOF1.1.1 is used for numerical reproducibility; its deprecation notice is not a fit failure.
+
+Original data terms apply. Files include the exact resampled analysis extracts, not full LEMON/CAP recordings. Source URLs, byte ranges, hashes, metadata, and extraction scripts document their origin. Range hashes authenticate downloaded portions rather than claiming a whole-file hash.
+
+After the analysis commands, run `python build_report.py` and `python verify_run.py`. The input SHA256SUMS file authenticates the supplied package bytes; figures regenerated later can differ in embedded rendering metadata while preserving the numerical results.
