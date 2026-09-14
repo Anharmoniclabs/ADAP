@@ -1,0 +1,43 @@
+n2 None No eligible scored stages in recording
+n3 None No eligible scored stages in recording
+n7 None No matching frontal/occipital reference pair: ['LOC-A1', 'ROC-A2', 'EMG-EMG', 'C3-A2', 'O2-A1', 'ECG', 'TAG', 'THE']
+n6 None No matching frontal/occipital reference pair: ['LOC-A1', 'ROC-A2', 'EMG-EMG', 'C3-A2', 'O2-A1', 'ECG', 'TAG', 'THE']
+n8 None No matching frontal/occipital reference pair: ['C3-A2', 'C4-P4', 'EKG', 'EOG-L', 'EOG-R', 'F4-C4', 'Fp2-F4', 'P4-O2', 'Tib dx', 'Tib sx', 'abdomen', 'flow', 'milo', 'thorax']
+n9 None No matching frontal/occipital reference pair: ['LOC-A1', 'ROC-A2', 'EMG', 'C3-A2', 'O2-A1', 'ECG', 'TAG', 'THE']
+n1 range complete 209.0 511.0
+n5 range complete 1199.0 1501.0
+n1 range complete 539.0 751.0
+n1 range complete 1229.0 1291.0
+n5 range complete 1499.0 1801.0
+n5 range complete 1799.0 1831.0
+n1 range complete 4259.0 4411.0
+n10 range complete 3599.0 3901.0
+n11 range complete 29.0 331.0
+n1 range complete 4739.0 4771.0
+n5 range complete 2009.0 2071.0
+n1 range complete 7679.0 7711.0
+n5 range complete 5789.0 5821.0
+n11 range complete 1109.0 1231.0
+n1 range complete 11579.0 11671.0
+n5 range complete 30749.0 30841.0
+n1 range complete 15059.0 15091.0
+n1 {'W': 10, 'S1': 10, 'S2': 10} 
+n10 range complete 5489.0 5791.0
+n5 range complete 31349.0 31441.0
+n5 {'W': 10, 'S1': 10, 'S2': 10} 
+n11 range complete 1829.0 2131.0
+n12 None No matching frontal/occipital reference pair: ['LOC / A2', 'ROC / A1', 'CHIN', 'CHIN', 'C3-A2', 'C4-A1', 'O1-A2', 'O2-A1', 'EKG']
+n10 range complete 9629.0 9691.0
+n10 {'W': 10, 'S1': 2, 'S2': 10} 
+n13 None No matching frontal/occipital reference pair: ['LOC', 'ROC', 'CHIN1', 'CHIN2', 'F3A2', 'F4A1', 'C3A2', 'C4A1', 'O1A2', 'O2A1', 'ECG']
+n11 range complete 2129.0 2191.0
+n11 {'W': 10, 'S1': 6, 'S2': 10} 
+n14 None No matching frontal/occipital reference pair: ['LOC', 'ROC', 'CHIN1', 'CHIN2', 'F3A2', 'F4A1', 'C3A2', 'C4A1', 'O1A2', 'O2A1', 'ECG']
+n15 None No matching frontal/occipital reference pair: ['EOG-L', 'EOG-R', 'CHIN1', 'CHIN2', 'F3A2', 'F4A1', 'C3A2', 'C4A1', 'O1A2', 'O2A1', 'EKG']
+n16 range complete 20.0 310.0
+n16 range complete 290.0 340.0
+n16 range complete 860.0 1150.0
+n16 range complete 1130.0 1330.0
+n16 range complete 27770.0 27940.0
+n16 {'W': 10, 'S1': 10, 'S2': 10} 
+DONE 16 6

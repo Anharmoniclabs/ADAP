@@ -1,0 +1,75 @@
+sub-032305 excluded missing required channels T7
+sub-032301 excluded missing required channels T7
+sub-032306 excluded missing required channels O1,T7,T8
+sub-032329 excluded missing required channels Cz
+sub-032335 excluded preprocessed set unavailable: EC
+sub-032333 excluded missing required channels Cz
+sub-032336 excluded missing required channels Fp1,O1
+sub-032303 included 
+sub-032308 included 
+sub-032318 included 
+sub-032331 included 
+sub-032337 included 
+sub-032339 excluded missing required channels F8
+sub-032338 included 
+sub-032369 excluded missing required channels T7,T8
+sub-032341 included 
+sub-032340 included 
+sub-032374 excluded preprocessed set unavailable: EC
+sub-032342 included 
+sub-032343 included 
+sub-032377 excluded missing required channels T7
+sub-032347 included 
+sub-032378 excluded missing required channels T7,T8
+sub-032375 included 
+sub-032373 included 
+sub-032372 included 
+sub-032393 excluded missing required channels T7,T8
+sub-032383sub-032392 excluded missing required channels T7,T8
+ excluded missing required channels F8
+sub-032376 included 
+sub-032428 excluded missing required channels T7,T8,P7,Fz
+sub-032379 included 
+sub-032395 excluded missing required channels Fz
+sub-032443 excluded preprocessed set unavailable: EC
+sub-032380 included 
+sub-032447 excluded missing required channels T8
+sub-032450 excluded missing required channels T7,T8
+sub-032415 included 
+sub-032430 included 
+sub-032431 included 
+sub-032442 included 
+sub-032452 excluded missing required channels F8
+sub-032453 excluded missing required channels F7
+sub-032457 excluded missing required channels Cz
+sub-032454 included 
+sub-032451 included 
+sub-032455 included 
+sub-032465 excluded missing required channels Cz
+sub-032456 included 
+sub-032466 excluded missing required channels Fp1
+sub-032474 excluded missing required channels F7
+sub-032458 included 
+sub-032479 excluded missing required channels F7
+sub-032462 included 
+sub-032463 included 
+sub-032485 excluded preprocessed set unavailable: EC
+sub-032486 excluded preprocessed set unavailable: EC
+sub-032487 excluded preprocessed set unavailable: EC
+sub-032488 excluded preprocessed set unavailable: EC
+sub-032489 excluded preprocessed set unavailable: EC
+sub-032459 included 
+sub-032491 excluded missing required channels Cz
+sub-032492 excluded preprocessed set unavailable: EC
+sub-032484 excluded 
+sub-032483 excluded 
+sub-032493 excluded missing required channels T7
+sub-032475 included 
+sub-032482 included 
+sub-032498 excluded missing required channels Fp2,F7
+sub-032497 excluded missing required channels Cz
+sub-032490 included 
+sub-032494 excluded missing required channels T8
+sub-032495 included 
+sub-032496 included 
+DONE 74 34

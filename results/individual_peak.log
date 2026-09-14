@@ -1,0 +1,12 @@
+/workspace/scratch/f476cc0f857f/EEG_Control_Runs/individual_peak_controls.py:5: DeprecationWarning: 
+The `fooof` package is being deprecated and replaced by the `specparam` (spectral parameterization) package.
+This version of `fooof` (1.1) is fully functional, but will not be further updated.
+New projects are recommended to update to using `specparam` (see Changelog for details).
+  from fooof import FOOOF
+  window                   factor  n_AD  n_control  AD_median  control_median  difference    ci_low   ci_high            p  holm6_exploratory
+ first60        candidate_peak_hz    33         29   8.878355        9.612625   -0.734270 -1.571815  1.034507 5.163601e-01           0.516360
+ first60 individualized_log_ratio    33         29   0.189435        0.604914   -0.415479 -0.815685 -0.181230 8.781177e-05           0.000351
+  last60        candidate_peak_hz    35         29   8.692831        9.850113   -1.157281 -2.422801  0.030974 7.727207e-02           0.160024
+  last60 individualized_log_ratio    35         29   0.053688        0.595013   -0.541325 -0.757509 -0.299861 1.591004e-05           0.000080
+middle60        candidate_peak_hz    33         28   9.046777       10.007393   -0.960617 -1.613248  0.060958 5.334142e-02           0.160024
+middle60 individualized_log_ratio    33         28   0.124560        0.788593   -0.664032 -0.932449 -0.481980 3.920267e-07           0.000002

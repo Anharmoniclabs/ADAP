@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "counts": {
+    "n4": 642,
+    "n11": 328,
+    "n10": 329,
+    "n1": 580,
+    "n3": 532,
+    "n2": 651,
+    "n5": 472
+  },
+  "checks": [
+    "optional Position field",
+    "preamble exclusion",
+    "time/duration syntax"
+  ]
+}

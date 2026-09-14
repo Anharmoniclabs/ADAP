@@ -1,0 +1,9 @@
+cohort condition reference                      factor  n  reference_mean  condition_mean  mean_paired_difference    ci_low   ci_high        p  n_increase  n_decrease  holm_state_tests
+ LEMON        EO        EC                       score 34        0.444482        0.766498                0.322016  0.211716  0.421346 0.000100          30           4          0.000800
+ LEMON        EO        EC             score_average19 34        0.540316        0.913431                0.373115  0.261526  0.481371 0.000100          28           6          0.000800
+ LEMON        EO        EC log_posterior_frontal_alpha 34        1.659700        0.962225               -0.697475 -0.885971 -0.510808 0.000100           5          29          0.000800
+ LEMON        EO        EC             log_theta_alpha 34       -0.975521       -0.151399                0.824122  0.611589  1.032912 0.000100          31           3          0.000800
+   CAP        S1         W log_posterior_frontal_alpha 10        0.299008        0.096573               -0.202436 -0.443390  0.006093 0.149185           3           7          0.149185
+   CAP        S1         W             log_theta_alpha 10       -0.652007        0.101454                0.753461  0.253715  1.279862 0.033497           8           2          0.092391
+   CAP        S2         W log_posterior_frontal_alpha 11        0.294964       -0.027105               -0.322069 -0.559680 -0.083888 0.030797           2           9          0.092391
+   CAP        S2         W             log_theta_alpha 11       -0.640836        0.583327                1.224163  0.763966  1.700530 0.001000          11           0          0.004000

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": {
+    "spectral_subject_windows": 444,
+    "lemon_paired_people": 34,
+    "cap_candidates": 16,
+    "cap_included": 11,
+    "paired_tests": 8,
+    "individual_peak_tests": 6,
+    "planned_group_tests": 81
+  }
+}

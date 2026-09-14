@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "scope": "software recovery of known idealized spectra; not validation of biological model",
+  "cases": [
+    {
+      "true_exponent": 1.5,
+      "fit_exponent": 1.5006858019058684,
+      "true_peak_center": 10,
+      "fit_peak_center": 10.000809073350233,
+      "true_height": 0.5,
+      "fit_height": 0.49840699817454537
+    },
+    {
+      "true_exponent": 2.2,
+      "fit_exponent": 2.2006858020042084,
+      "true_peak_center": 10,
+      "fit_peak_center": 10.000809073447275,
+      "true_height": 0.5,
+      "fit_height": 0.4984069979358206
+    },
+    {
+      "true_exponent": 1.5,
+      "fit_exponent": 1.5002743207632743,
+      "true_peak_center": 10,
+      "fit_peak_center": 10.000809073362202,
+      "true_height": 0.2,
+      "fit_height": 0.19936279926802236
+    },
+    {
+      "true_exponent": 1.5,
+      "fit_exponent": 1.5018731059392205,
+      "true_peak_center": 8.5,
+      "fit_peak_center": 8.501996433163526,
+      "true_height": 0.5,
+      "fit_height": 0.4972152242068628
+    }
+  ]
+}
