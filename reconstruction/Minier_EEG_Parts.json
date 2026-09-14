@@ -1,0 +1,66 @@
+{
+  "output": "Minier_EEG_Experiments_20260914_FULL.zip",
+  "sha256": "f4dd7fa2d9875151f557886f6016b0e80e7538c5b02ae89f46b568888f35c289",
+  "parts": [
+    {
+      "name": "Minier_EEG_FULL.zip.part01",
+      "bytes": 268435456,
+      "sha256": "1283b59b5aaeed5bd6df30237f8befc809ca1c3b614cf48fb4bddd95f8b0d885"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part02",
+      "bytes": 268435456,
+      "sha256": "a9768f089d342fee3a3284d668d17332e66f79243af891dd61883ae74f28af1c"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part03",
+      "bytes": 268435456,
+      "sha256": "cfe2ef104fe0820d3d7f0c926d4e61a850ffc89af52b197b5659f73923893099"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part04",
+      "bytes": 268435456,
+      "sha256": "8fb96590c8c733f711f91237c3ab093406e867901ac1df779cd5743bf2e1b450"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part05",
+      "bytes": 268435456,
+      "sha256": "ccc8b0b445773da478dfb455922b1aff06248094b8f0682237767c34bf421a88"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part06",
+      "bytes": 268435456,
+      "sha256": "b5e0966f616af058581ef020b27e4d176457faf828084f0d29ba8dd423f80b75"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part07",
+      "bytes": 268435456,
+      "sha256": "f1a33d7f17c76349245b01d7b91a753f1f6be9eaf0bb6b2f4f3669b287cdf272"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part08",
+      "bytes": 268435456,
+      "sha256": "da3bb2e860a6d07a9acd735450b0cd6f56e95b43363538138c5c0cfbc745c61a"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part09",
+      "bytes": 268435456,
+      "sha256": "fe70909a7033d8b1599f93d2ee9299c6630cee14b7db94568e1d9d624f76bd66"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part10",
+      "bytes": 268435456,
+      "sha256": "1b8c5ce11642e5eb5d532526f007de2243c2be101ea31523cd81a6895324ca54"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part11",
+      "bytes": 268435456,
+      "sha256": "9e67ce481592a58fc74d0673eed432ab5c76d1fec7fafbfd701b20a04b364dd4"
+    },
+    {
+      "name": "Minier_EEG_FULL.zip.part12",
+      "bytes": 18710445,
+      "sha256": "5631033cf7cc7a83e86f8984542d87c7c6eda2d9750ca3756fcbd2daabb6f6b1"
+    }
+  ]
+}
