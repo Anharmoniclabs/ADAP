@@ -1,0 +1,5 @@
+{
+  "subject": "n8",
+  "status": "excluded",
+  "reason": "No matching frontal/occipital reference pair: ['C3-A2', 'C4-P4', 'EKG', 'EOG-L', 'EOG-R', 'F4-C4', 'Fp2-F4', 'P4-O2', 'Tib dx', 'Tib sx', 'abdomen', 'flow', 'milo', 'thorax']"
+}

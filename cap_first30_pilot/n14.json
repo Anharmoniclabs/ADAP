@@ -1,0 +1,5 @@
+{
+  "subject": "n14",
+  "status": "excluded",
+  "reason": "No matching frontal/occipital reference pair: ['LOC', 'ROC', 'CHIN1', 'CHIN2', 'F3A2', 'F4A1', 'C3A2', 'C4A1', 'O1A2', 'O2A1', 'ECG']"
+}

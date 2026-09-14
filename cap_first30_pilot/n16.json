@@ -1,0 +1,5 @@
+{
+  "subject": "n16",
+  "status": "excluded",
+  "reason": "No matching frontal/occipital reference pair: ['Fp2-F4', 'F4-C4', 'C4-P4', 'P4-O2', 'C4-A1']"
+}

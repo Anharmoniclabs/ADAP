@@ -1,0 +1,5 @@
+{
+  "subject": "n1",
+  "status": "excluded",
+  "reason": "No matching frontal/occipital reference pair: ['ROC-LOC', 'LOC-ROC', 'F2-F4', 'F4-C4', 'C4-P4', 'P4-O2', 'F1-F3', 'F3-C3', 'C3-P3', 'P3-O1', 'C4-A1', 'EMG1-EMG2', 'ECG1-ECG2', 'TERMISTORE', 'TORACE', 'ADDOME', 'Dx1-DX2', 'SX1-SX2', 'Posizione', 'HR', 'SpO2']"
+}

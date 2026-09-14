@@ -1,0 +1,70 @@
+{
+  "subject": "n4",
+  "status": "included",
+  "counts": {
+    "W": 3,
+    "S1": 0,
+    "S2": 0
+  },
+  "selected_channels": [
+    "F4-A1",
+    "O2-A1",
+    "EOG dx",
+    "EOG sin",
+    "ekg"
+  ],
+  "algebraic_reconstruction": true,
+  "contributing_channels": [
+    "F4-C4",
+    "C4-P4",
+    "P4-O2",
+    "C4-A1",
+    "EOG dx",
+    "EOG sin",
+    "ekg"
+  ],
+  "all_channels": [
+    "EOG dx",
+    "Fp2-F4",
+    "F4-C4",
+    "C4-P4",
+    "P4-O2",
+    "C4-A1",
+    "milo",
+    "EOG sin",
+    "tib dx",
+    "tib sin",
+    "cannula",
+    "toracico",
+    "ekg",
+    "deltoide",
+    "Heart Rate Varia",
+    "Flattening",
+    "Flow"
+  ],
+  "units": [
+    "uV",
+    "uV",
+    "uV",
+    "uV",
+    "mV",
+    "mV",
+    "mV"
+  ],
+  "start_seconds": 79687.0,
+  "record_duration": 10.0,
+  "fs": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    200.0
+  ],
+  "source_url": "https://physionet.org/files/capslpdb/1.0.0/n4.edf",
+  "range": "4608-6488207",
+  "range_sha256": "5591f27248765092267221b7f4e25877ed8880b9f259872e459154c9fc286767",
+  "header_sha256": "7366130282fb3acdff52d970318fb87d5ef876e0167f5d217af33a5e427c2897",
+  "annotation_sha256": "5dd6efc5bb15b3f0df741115d308680727e0979bbda5a0c9208cb3db28cdedc6"
+}
