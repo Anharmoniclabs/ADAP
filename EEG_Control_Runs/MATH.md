@@ -1,0 +1,21 @@
+# Mathematical definitions and inference
+
+For each channel, the PSD is Welch's estimate using a Hann window, constant detrending, and128Hz sampling. Eight-second inputs use one1024sample window; longer inputs use1024sample windows with512sample overlap. Band power is the trapezoidal integral over frequency bins [lo,hi): delta1–4,theta4–8,alpha8–13,beta13–30Hz. Relative alpha is alpha divided by the sum of those four band powers.
+
+The frozen score is `1 − PearsonCorrelation(person_19_channel_relative_alpha, source_control_mean_map)`. The source template is the mean map from the29 source controls' first8second recordings. It is frozen for LEMON and never fit to LEMON labels or conditions. A separate sensitivity template and scores use common-average reference across the same19 channels; that is an explicitly separate score.
+
+Posterior channels: P3,P4,Pz,O1,O2. Frontal channels: Fp1,Fp2,F3,F4,F7,F8,Fz. The regional ratio is `ln(mean posterior absolute alpha / mean frontal absolute alpha)`. Regional PSDs for the spectral model are averages of the constituent channel PSDs. CAP's two-channel version uses actual same-reference frontal and occipital signals and is not the original19channel feature.
+
+FOOOF fits log10(PSD(f)) = b − chi*log10(f) + sum_j a_j*exp(-(f−mu_j)^2/(2*sigma_j^2)), on2–30Hz. Fixed background, allowed peak widths1–8Hz, maximum6 peaks, minimum height0.1log10 units, peak threshold2. Fits requireR2>=0.8 and mean absolute log10 error<=0.15. Failed fits are missing. A valid model can have no8–13Hz peak; no peak frequency is imputed. The periodic-alpha feature is the mean fitted periodic log10 contribution at8–13Hz, including fitted peak tails. It is not direct neuronal amplitude or proof of a sustained oscillation. Posterior-minus-frontal contrasts use the same units for both regions.
+
+Independent group comparisons use two-sided Mann–Whitney tests. Median-difference confidence intervals use5000 stratified person bootstraps. Holm correction includes all81 planned group comparisons; unavailable tests are assigned1 for correction accounting and retained as unavailable in the table. Intervals are pointwise, not simultaneous. P-values for original log-ratio observations can differ from the earlier package because this package defines a different, broader correction family.
+
+LEMON yields one median over eligible boundary-free8second windows per participant and condition. CAP yields a median over eligible30second epochs per participant/state. Paired effects are means of participant differences, with5000person bootstraps and10000random sign flips, two-sided; Holm accounts for8 state endpoints. Sign-flip interpretation assumes a symmetric paired null. Windows are never independent participants. Confidence intervals do not incorporate historical endpoint selection, measurement model selection or dataset uncertainty.
+
+ECG sensitivity regresses each regional EEG on ECG at lags−10,−5,0,5,10samples plus intercept at128Hz. A5second circular-shift ECG is a descriptive sham. Crop10samples at each edge. Compare ratio changes and removed variance per person. This does not validate artifact removal, quantify HRV, or establish autonomic causation. Removing ECG-associated variance can also remove physiological neural activity.
+
+The known-spectrum software check varies aperiodic slope, peak height and frequency independently and checks recovery. Passing it validates implementation behavior on idealized spectra, not the model's biological truth.
+
+Individualized-frequency exploratory sensitivity: the highest fitted posterior peak centered4–14Hz defines a band centered on that peak with±2Hz limits for both posterior and frontal regions. The same rule applies to all diagnostic groups. No peak means missing. AD/control tests across three60second periods and two endpoints form a separate six-test Holm family. This sensitivity was added after the original fixed-band results and is not confirmatory. It does not identify the alpha generator or exclude vigilance changes.
+
+CAP uses the first eligible epochs per state, which may be scattered across the night. The contrast is state-wise rather than event-aligned, and the W label does not specify eye closure. No worst-case microsleep bound is derived.

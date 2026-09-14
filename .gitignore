@@ -1,0 +1,16 @@
+# Large reconstructed/third-party EEG caches
+**/*.set
+**/*.edf
+**/*.npz
+**/*.npy
+**/*.zip
+**/*.bin
+
+# Raster figures are generated from versioned numerical outputs; SVG is preferred in Git
+**/*.png
+
+# Python/runtime
+__pycache__/
+*.pyc
+.venv/
+venv/

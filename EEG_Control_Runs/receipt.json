@@ -1,0 +1,32 @@
+{
+  "completed_utc": "2026-09-14T14:24:07.576698+00:00",
+  "python": "3.12.14",
+  "scope": "executed spectral controls, individualized peak sensitivity, healthy eye-condition and sleep-stage controls",
+  "verification": {
+    "passed": true,
+    "checks": {
+      "spectral_subject_windows": 444,
+      "lemon_paired_people": 34,
+      "cap_candidates": 16,
+      "cap_included": 11,
+      "paired_tests": 8,
+      "individual_peak_tests": 6,
+      "planned_group_tests": 81
+    }
+  },
+  "state_results": {
+    "lemon_people": 34,
+    "cap_people": 11,
+    "lemon_windows": 890,
+    "cap_epochs": 318,
+    "tests": 8
+  },
+  "plan_sha256": "96cd2c8b7d6a5c320ac745a2159311ef48a8aa4dc07b31c2fe8f440382ce571a",
+  "amendments": [
+    "CAP_MAPPING_AMENDMENT.txt",
+    "CAP_EPOCH_AMENDMENT.txt",
+    "CAP_DOWNLOAD_NOTE.txt",
+    "ECG_SENSITIVITY_PLAN.txt",
+    "INDIVIDUAL_PEAK_PLAN.txt"
+  ]
+}
