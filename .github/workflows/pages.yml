@@ -27,6 +27,7 @@ jobs:
           cp index.html demo.html paper.html paper.md REPORT.html SHA256SUMS social-preview.png _site/
           cp results/*.svg results/*.csv _site/results/
           cp reconstruction/Minier_EEG_Parts.json _site/reconstruction/
+          cp -R assets _site/assets
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
