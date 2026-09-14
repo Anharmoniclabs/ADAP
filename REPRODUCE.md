@@ -8,6 +8,7 @@ Use Python 3.12 or later:
 
 ```bash
 python verify_repository.py
+python verify_run.py
 ```
 
 The checker reads `SHA256SUMS`, validates every manifest-listed file available in the clone, maps the original package `README.md` to `PACKAGE_README.md`, and reports any still-missing `data/` inputs separately. A hash mismatch or a missing non-data analysis artifact is an error.
@@ -22,6 +23,9 @@ python -m pip install -r requirements-lock.txt
 ```
 
 The completed run receipt records Python 3.12.14.
+
+On macOS/Linux, `make setup` creates the environment and `make audit` performs
+all checks that do not require external signal files.
 
 ## 3. Inputs
 
@@ -58,6 +62,8 @@ python make_figures.py
 python build_report.py
 python verify_run.py
 ```
+
+With all external inputs present, the same sequence is available as `make reproduce`.
 
 Expected final verification counts, recorded in `receipt.json` and `results/verification.json`, are:
 
