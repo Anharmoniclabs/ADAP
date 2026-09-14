@@ -1,0 +1,7 @@
+{
+  "subject": "sub-032395",
+  "age_bin": "60-65",
+  "sex_code": 1,
+  "status": "excluded",
+  "reason": "missing required channels Fz"
+}
