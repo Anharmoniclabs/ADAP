@@ -20,6 +20,8 @@ jobs:
           python-version: '3.12'
       - name: Verify packaged research artifacts
         run: python verify_repository.py
+      - name: Install recorded-count audit dependencies
+        run: python -m pip install -c requirements-lock.txt numpy pandas
       - name: Verify recorded result counts
         run: python verify_run.py
       - name: Compile Python sources
