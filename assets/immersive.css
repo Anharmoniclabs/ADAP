@@ -3,7 +3,7 @@
 body{background-color:#04070b;background-image:radial-gradient(ellipse at 80% 0,#12343045,transparent 50%);overflow-x:hidden}
 nav{position:sticky;top:0;z-index:20;background:#05090dde;backdrop-filter:blur(18px);padding:18px 5vw}
 #reading-progress{position:fixed;z-index:30;left:0;top:0;height:2px;background:var(--ice);box-shadow:0 0 12px var(--ice);width:0;pointer-events:none}
-header{min-height:84vh;overflow:visible;padding:70px 0 100px;display:flex;align-items:center}
+header{box-sizing:border-box;min-height:calc(100svh - 60px);overflow:visible;padding:60px 0 90px;display:flex;align-items:center}
 .hero-copy{width:48%;position:relative;z-index:2;pointer-events:none}.hero-copy a{pointer-events:auto}.hero-copy h1{font-size:clamp(60px,7vw,112px);max-width:600px}.hero-copy p{font-size:16px;max-width:510px}.hero-copy .eyebrow{font-size:10px}.hero-copy .muted{font-size:11px}
 .scene{position:absolute;right:-6vw;top:10px;width:66%;height:calc(100% - 40px);z-index:1;background:radial-gradient(ellipse,#0e292b36 0,transparent 67%)}
 #scalp-space{width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}#scalp-space:active{cursor:grabbing}
