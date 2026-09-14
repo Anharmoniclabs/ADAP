@@ -26,3 +26,7 @@ This establishes recovery and byte-level integrity of the original control packa
 ## Remaining public reproducibility work
 
 The 92 recovered data inputs have not been committed by this manifest-recovery change. A fresh Git clone still requires those inputs or a durable, appropriately licensed archive distribution. Data recovery does not establish diagnostic performance or clinical validation.
+
+## Preferred public reproduction route
+
+Use `python3.12 reproduce.py` from the repository root. It fetches original sources directly and reconstructs the recorded inputs. No multipart source pack is required. An existing control ZIP may be supplied with `--control-pack`; a separately hosted pack may be supplied with `--pack-url` and its mandatory `--pack-sha256`. No public pack URL is invented or assumed.

@@ -1,8 +1,9 @@
 PYTHON ?= python3
 
-.PHONY: help setup verify audit reproduce figures report clean-generated
+.PHONY: help setup verify audit reproduce reproduce-download figures report clean-generated
 
 help:
+	@echo "reproduce-download  Acquire inputs, create environment, run and compare"
 	@echo "setup      Create .venv and install the pinned environment"
 	@echo "verify     Verify packaged files and recorded result counts"
 	@echo "audit      Compile source and run repository verification"
@@ -24,6 +25,7 @@ audit:
 	$(MAKE) verify PYTHON=$(PYTHON)
 
 reproduce:
+	$(PYTHON) -c "from reproduce import ROOT, verify_all; verify_all(ROOT)"
 	$(PYTHON) validate_spectral_fit.py
 	$(PYTHON) spectral_controls.py
 	$(PYTHON) individual_peak_controls.py
@@ -41,3 +43,7 @@ report:
 clean-generated:
 	@echo "Generated results are part of the audit record and are not deleted automatically."
 
+
+# One-command acquisition, isolated environment, input gate, run and comparison.
+reproduce-download:
+	$(PYTHON) reproduce.py

@@ -26,3 +26,7 @@ Original dataset licenses and attribution requirements remain in force. No blank
 The completed control run reports 444 spectral subject-window rows, 34 paired LEMON participants, 16 CAP candidates with 11 included for eligible state analyses, 8 paired state tests, 6 individualized-peak tests, and 81 planned group tests.
 
 Figures regenerated from the same numerical results can differ in embedded rendering metadata; the numerical tables and verification checks are the primary reproducibility targets.
+
+## Automated acquisition
+
+`python3.12 reproduce.py` acquires the 92 inputs not bundled in the clone from OpenNeuro and OSF, verifies the original 423-file package, and runs in an isolated directory. Pinned URLs and source hashes are in `reproduction/sources.json`. The existing LEMON and CAP extracts remain in the clone. No additional health data are redistributed by this change.

@@ -1,5 +1,14 @@
 # ADAP — ad-alpha-parameterization
 
+## Download and reproduce
+
+```bash
+python3.12 reproduce.py
+```
+
+The launcher downloads required inputs from pinned public sources, verifies all 423 package files, creates an isolated pinned environment, runs the pipeline, and compares CSV outputs. Large datasets do not need to be committed to Git. See [REPRODUCE.md](REPRODUCE.md) for source links, existing-pack mode, resource requirements, and validation status.
+
+
 Reproducible research repository for the Minier EEG alpha-pattern experiments and the September 14, 2026 control run.
 
 ## Current result

@@ -1,97 +1,87 @@
-# Reproduction guide
+# Download and reproduce ADAP
 
-This repository separates versioned scientific artifacts from external or reconstructed EEG inputs.
+Datasets do not have to live in Git. This repository provides pinned source links,
+hashes, extraction code, the recorded environment, frozen outputs, and an executable
+reproduction workflow.
 
-## 1. Verify the Git snapshot
+## One command after cloning
 
-Use Python 3.12 or later:
-
-```bash
-python verify_repository.py
-python verify_run.py
-```
-
-The checker reads `SHA256SUMS`, validates every manifest-listed file available in the clone, maps the original package `README.md` to `PACKAGE_README.md`, and reports any still-missing `data/` inputs separately. A hash mismatch or a missing non-data analysis artifact is an error.
-
-## 2. Create the pinned environment
+Install Python 3.12 and run from the repository root:
 
 ```bash
-python -m venv .venv
-# activate the environment for your platform
-python -m pip install --upgrade pip
-python -m pip install -r requirements-lock.txt
+python3.12 reproduce.py
 ```
 
-The completed run receipt records Python 3.12.14.
+On Windows: `py -3.12 reproduce.py`. The original run used Python 3.12.14.
+The launcher creates a new sibling `adap-runs/YYYYMMDD-HHMMSS` directory and a
+virtual environment, installs `requirements-lock.txt`, and saves separate frozen
+`reference-results`. Your checkout and published outputs remain intact.
 
-On macOS/Linux, `make setup` creates the environment and `make audit` performs
-all checks that do not require external signal files.
+It downloads the Florida archive (OSF file heaw6, version 1), the pinned OpenNeuro
+participant table, and 88 OpenNeuro v1.0.9 derivative recordings. Source SHA-256
+checks precede extraction. It reconstructs the recorded first-eight-second and
+first/middle/last 60-second inputs and requires **all 423 original package hashes**
+to match before analysis. Missing inputs or different bytes stop the run.
 
-## 3. Inputs
+It then executes spectral-fit validation, spectral controls, individualized-peak
+controls, state controls, figures, report generation, and recorded-count checks.
+CSV tables are compared with frozen references using `rtol=1e-7`, `atol=1e-10`,
+equal missing values, exact nonnumeric values, and matching row/column order.
+`comparison.json` records the outcome; differences cause failure. These tolerances
+are declared comparison criteria, not a claim that a full fresh run has passed.
 
-### OpenNeuro ds004504 v1.0.9
-
-All 88 derivative recordings were considered. The primary source contrast is 36 AD versus 29 controls; the secondary disease-specificity contrast is 36 AD versus 23 FTD. Use:
+## Existing pack or cached sources
 
 ```bash
-python spectral_controls.py --extract /path/to/full/OpenNeuro/derivatives
+python3.12 reproduce.py --control-pack /path/to/Minier_EEG_Control_Runs.zip
+python3.12 reproduce.py --prepare-only
+python3.12 reproduce.py --check-links
+python3.12 reproduce.py --source-dir /path/to/cached/set/files
+python3.12 reproduce.py --workdir /path/to/new-run-directory
 ```
 
-to rebuild first/middle/last 60-second snippets when `data/source60/` is absent. The package manifest and extraction receipt define the expected bytes/hashes.
+Pack mode imports only manifest-listed data and verifies each hash before writing.
+It does not overwrite analysis code or extract arbitrary archive paths.
+A separately hosted pack can be used with
+`--pack-url https://YOUR-HOST/control-pack.zip --pack-sha256 ACTUAL_SHA256`.
+This is an optional interface; no public pack URL is invented or assumed.
 
-### Florida OSF 2v5md
+`--prepare-only` installs the environment and verifies inputs without analysis.
+`--check-links` probes the Florida metadata/hash, participant URL, and one OpenNeuro
+object; it does not test every recording. `--source-dir` retains and reuses source
+files after hash verification. Existing run directories are rejected.
 
-The completed analysis used the original `EEG_data.zip` revision captured by the package: 80 AD and 12 healthy eyes-closed recordings, eight seconds each, with all 19 named channels. No longer Florida recordings were synthesized or assumed.
+## Resources and original sources
 
-### MPI-LEMON
+Without a pack, expect several gigabytes of network transfer. One OpenNeuro
+recording is processed at a time; its temporary source copy is deleted after
+extraction unless a source directory is supplied. Allow several gigabytes of disk
+space for the environment, package, references, and outputs. Runtime depends on
+CPU/network. Downloads retry three times; interrupted partial downloads restart.
+Original hosts and pinned dependencies must be available.
 
-`download_lemon.py`, `lemon_selection_before_scores.json`, and `documentation/` preserve the selection/acquisition logic and source metadata. The final analysis includes only paired EC/EO recordings satisfying the exact 19-channel and boundary-free-window requirements. Missing electrodes are not interpolated.
+| Input | Source | Integrity |
+|---|---|---|
+| OpenNeuro | [ds004504 v1.0.9](https://openneuro.org/datasets/ds004504/versions/1.0.9) | 88 source hashes and pinned metadata revision |
+| Florida | [OSF project](https://osf.io/2v5md/) / [archive version 1](https://osf.io/download/heaw6/?version=1) | SHA-256 f5b30df4fd0d18e3224dde0bd564e2a5cea61845ae5a9b8142ae722c5d99ba93 |
+| LEMON | [MPI-LEMON](https://fcon_1000.projects.nitrc.org/indi/retro/MPI_LEMON.html) | Recorded extracts already in Git; package hashes |
+| CAP | [CAP v1.0.0](https://physionet.org/content/capslpdb/1.0.0/) | Recorded extracts already in Git; package hashes |
 
-### CAP Sleep Database
+`reproduction/sources.json` contains pinned acquisition routes and source hashes.
+Original source terms and citations apply. Florida is downloaded from its original
+host by the person reproducing the analysis; it is not redistributed by this change.
+The optional multipart full-source archive is not required.
 
-The versioned final CAP extracts are under `data/cap/`; the original first-30-minute pilot is under `data/cap_first30_pilot/`. Read `CAP_MAPPING_AMENDMENT.txt`, `CAP_EPOCH_AMENDMENT.txt`, and `CAP_DOWNLOAD_NOTE.txt` before rerunning acquisition. The final state selection uses up to 10 complete 30-second epochs per W/S1/S2 state anywhere in the recording, with at least 3 epochs required for that state to enter paired inference. Sleep labels come from external annotations, not from the alpha score.
+## Validation status
 
-## 4. Run the analysis
+- Recovered control pack and launcher pack import: all 423 hashes pass.
+- One real downloaded OpenNeuro source: source hash verified, three regenerated
+  60-second extracts byte-identical, and first-eight-second samples identical.
+- Repacking the recorded first-eight-second arrays reproduces the NPZ hash.
+- Launcher syntax and source-link probes checked.
+- Florida archive downloaded from the versioned OSF URL: exact SHA-256 match.
+- CSV comparison accepts matching data and rejects a deliberately changed value.
 
-```bash
-python validate_spectral_fit.py
-python spectral_controls.py
-python individual_peak_controls.py
-python state_controls.py
-python make_figures.py
-python build_report.py
-python verify_run.py
-```
-
-With all external inputs present, the same sequence is available as `make reproduce`.
-
-Expected final verification counts, recorded in `receipt.json` and `results/verification.json`, are:
-
-- 444 spectral subject-window rows
-- 34 paired LEMON participants
-- 16 CAP candidates
-- 11 CAP recordings included for eligible state analyses
-- 8 paired state tests
-- 6 individualized-peak tests
-- 81 planned group tests
-
-## 5. Audit the claims
-
-Primary machine-readable outputs include:
-
-- `results/spectral_group_tests.csv`
-- `results/spectral_subject_windows.csv`
-- `results/source_window_stability.csv`
-- `results/individual_peak_tests.csv`
-- `results/individual_peak_subjects.csv`
-- `results/state_tests.csv`
-- `results/lemon_subject_states.csv`
-- `results/cap_subject_states.csv`
-- `results/cap_ecg_sensitivity.csv`
-- `results/verification.json`
-
-`REPORT.html` is the human-readable illustrated report. `FINDINGS.md` and `LIMITATIONS_PARAGRAPH.md` state the supported interpretation and explicit limits.
-
-## Reproducibility boundary
-
-A clean clone is sufficient to audit the code, decisions, source/provenance documentation, hashes, and reported numerical outputs. A fresh signal-level rerun additionally requires every input reported as missing by `verify_repository.py`. This boundary is explicit so a GitHub clone is not falsely represented as containing third-party data that are not actually present.
+**A complete new download and end-to-end numerical rerun has not been completed.**
+This is an executable workflow with integrity gates, not a claim of independent
+replication or clinical validation. See FINDINGS.md and LIMITATIONS_PARAGRAPH.md.

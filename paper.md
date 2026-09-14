@@ -260,7 +260,7 @@ The research repository is [Anharmoniclabs/ADAP](https://github.com/Anharmonicla
 
 The complete original control archive was recovered from saved research artifacts. Its `SHA256SUMS` matches the repository manifest, and all 423 listed files passed checksum verification. This establishes recovery and byte-level integrity. It is not a fresh end-to-end numerical rerun or an independent replication.
 
-At preparation of this manuscript, the organized Git snapshot still lacks 92 recovered input files. They include the Florida archive, source participant metadata, first-eight-second waveforms, 88 source 60-second extracts, and the extraction receipt. Thus, the fact that the data are recoverable must be distinguished from their availability in a public clean clone. A separate original manifest and reassembly script describe the multipart full-source archive; those metadata do not themselves distribute the archive parts.
+Large EEG inputs are acquired from their original public sources rather than redistributed in this Git repository. Run python3.12 reproduce.py to create an isolated environment, download the pinned inputs, verify all 423 original package hashes, run the analysis, and compare the resulting CSV tables with the frozen reference tables. The repository includes source URLs, source-file checksums, extraction receipts, and the acquisition code. A complete independent end-to-end numerical replication has not yet been completed. The separate multipart full-source archive is optional; its reassembly metadata are retained for historical provenance.
 
 Once all inputs and the recorded environment are available, the documented sequence is:
 
